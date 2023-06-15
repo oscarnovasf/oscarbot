@@ -1,0 +1,477 @@
+{
+  "drupal_form_actions": {
+    "scope": "php",
+    "prefix": "form_actions",
+    "body": [
+      "$$form['${1:actions}'] = [",
+      "\t'#type' => 'actions',",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Action"
+  },
+
+  "drupal_form_attached": {
+    "scope": "php",
+    "prefix": "form_attached",
+    "body": [
+      "$$form['#attached']['library'][] = '${WORKSPACE_NAME}/${1:library_name}';$0",
+    ],
+    "description": "Drupal 8|9: FormApi Attached"
+  },
+
+  "drupal_form_cache": {
+    "scope": "php",
+    "prefix": "form_cache",
+    "body": [
+      "$$form['#cache']['max-age'] = ${1:0};$0",
+    ],
+    "description": "Drupal 8|9: FormApi Caché"
+  },
+
+  "drupal_form_checkbox": {
+    "scope": "php",
+    "prefix": "form_checkbox",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'checkbox',",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#default_value' => '${3:default}',",
+      "\t'#required' => ${4|TRUE,FALSE|},",
+      "\t'#access' => ${5|TRUE,FALSE|},",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Checkbox"
+  },
+
+  "drupal_form_checkboxes": {
+    "scope": "php",
+    "prefix": "form_checkboxes",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'checkboxes',",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#default_value' => '${3:default}',",
+      "\t'#required' => ${4|TRUE,FALSE|},",
+      "\t'#access' => ${5|TRUE,FALSE|},",
+      "\t'#options' => [${6:array}],",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Checkboxes"
+  },
+
+  "drupal_form_container": {
+    "scope": "php",
+    "prefix": "form_container",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'container',",
+      "\t'#prefix' => '${2:prefix}',",
+      "\t'#suffix' => '${3:suffix}',",
+      "\t'#attributes' => [",
+      "\t\t'class' => [${4:container}],",
+      "\t],",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Container"
+  },
+
+  "drupal_form_date": {
+    "scope": "php",
+    "prefix": "form_date",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'date',",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#description' => '${3:default}',",
+      "\t'#default_value' => ${4:date('Y-m-d')},",
+      "\t'#required' => ${5|TRUE,FALSE|},",
+      "\t'#access' => ${6|TRUE,FALSE|},",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Date"
+  },
+
+  "drupal_form_date_time": {
+    "scope": "php",
+    "prefix": "form_datetime",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'datetime',",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#description' => '${3:default}',",
+      "\t'#required' => ${4|TRUE,FALSE|},",
+      "\t'#access' => ${5|TRUE,FALSE|},",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi DateTime"
+  },
+
+  "drupal_form_details": {
+    "scope": "php",
+    "prefix": "form_details",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'details',",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#description' => '${3:default}',",
+      "\t'#open' => ${4|TRUE,FALSE|},",
+      "\t'#group' => '${5:group_name}',",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Details"
+  },
+
+  "drupal_form_email": {
+    "scope": "php",
+    "prefix": "form_email",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'email',",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#default_value' => '${3:default}',",
+      "\t'#required' => ${4|TRUE,FALSE|},",
+      "\t'#access' => ${5|TRUE,FALSE|},",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Email"
+  },
+
+  "drupal_form_entity_autocomplete": {
+    "scope": "php",
+    "prefix": "form_entity_autocomplete",
+    "body": [
+      "$$entity = ${1|Node,Term|}::load();",
+      "$$form['${2:element_name}'] = [",
+      "\t'#type' => 'entity_autocomplete',",
+      "\t'#title' => $$this->t('${3:title}'),",
+      "\t'#default_value' => is_object($$entity) ? $$entity : NULL,",
+      "\t'#target_type' => '${4|node,taxonomy_term|}',",
+      "\t'#selection_settings' => [",
+      "\t\t'target_bundles' => ['${5:article}'],",
+      "\t],",
+      "\t'#required' => ${6|TRUE,FALSE|},",
+      "\t'#access' => ${7|TRUE,FALSE|},",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Entity Autocomplete"
+  },
+
+  "drupal_form_fieldset": {
+    "scope": "php",
+    "prefix": "form_fieldset",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'fieldset',",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#collapsible' => ${3|TRUE,FALSE|},",
+      "\t'#collapsed' => ${4|TRUE,FALSE|},",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi FieldSet"
+  },
+
+  "drupal_form_hidden": {
+    "scope": "php",
+    "prefix": "form_hidden",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'hidden',",
+      "\t'#value' => '${2:value}',",
+      "\t'#attributes' => [",
+      "\t\t'id' => '${3:id}',",
+      "\t],",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Hidden"
+  },
+
+  "drupal_form_html_tag": {
+    "scope": "php",
+    "prefix": "form_html_tag",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'html_tag',",
+      "\t'#tag' => '${2:div}',",
+      "\t'#value' => '${3:value}',",
+      "\t'#attributes' => [",
+      "\t\t'id' => '${4:id}',",
+      "\t],",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi HTML_TAG"
+  },
+
+  "drupal_form_link": {
+    "scope": "php",
+    "prefix": "form_link",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'link,",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#url' => Url::fromRoute('${3:route_name}'),",
+      "\t'#attributes' => '[${4:attributes}],",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Tabs"
+  },
+
+  "drupal_form_managed_file": {
+    "scope": "php",
+    "prefix": "form_managed_file",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'managed_file',",
+      "\t'#title' => $$this->t('${2:Upload file}'),",
+      "\t'#description' => $$this->t('${3:Allowed extensions: txt pdf doc docx}'),",
+      "\t'#multiple' => ${4|FALSE,TRUE|},",
+      "\t'#required' => ${5|TRUE,FALSE|},",
+      "\t'#access' => ${6|TRUE,FALSE|},",
+      "\t'#upload_location' => '${7|public,private,temporary|}://',",
+      "\t'#upload_validators' => [",
+      "\t\t'file_validate_extensions' => ['${8:txt pdf doc docx}'],",
+      "\t\t'file_validate_size' => [${9:25600000}],",
+      "\t\t'file_validate_is_image' => [],",
+      "\t],",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Managed File"
+  },
+
+  "drupal_form_markup": {
+    "scope": "php",
+    "prefix": "form_markup",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#markup' => '${2:prefix}',",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Markup"
+  },
+
+  "drupal_form_multi_value": {
+    "scope": "php",
+    "prefix": "form_multi_value",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'multi-value',",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#cardinality' => ${3:-1},",
+      "",
+      "$0",
+      "];",
+    ],
+    "description": "Drupal 8|9: Custom FormApi MultiValue"
+  },
+
+  "drupal_form_number": {
+    "scope": "php",
+    "prefix": "form_number",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'number',",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#default_value' => '${3:default}',",
+      "\t'#attributes' => [",
+      "\t\t'min' => ${4:number},",
+      "\t\t'max' => ${5:number},",
+      "\t\t'step' => ${6:1},",
+      "\t],",
+      "\t'#step' => ${6:1},",
+      "\t'#scale' => ${7:number},",
+      "\t'#required' => ${8|TRUE,FALSE|},",
+      "\t'#access' => ${9|TRUE,FALSE|},",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Number"
+  },
+
+  "drupal_form_password": {
+    "scope": "php",
+    "prefix": "form_password",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'password',",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#default_value' => '${3:default}',",
+      "\t'#required' => ${4|TRUE,FALSE|},",
+      "\t'#access' => ${5|TRUE,FALSE|},",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Password"
+  },
+
+  "drupal_form_radios": {
+    "scope": "php",
+    "prefix": "form_radios",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'radios',",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#default_value' => '${3:default}',",
+      "\t'#required' => ${4|TRUE,FALSE|},",
+      "\t'#access' => ${5|TRUE,FALSE|},",
+      "\t'#options' => [${6:array}],",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Radios"
+  },
+
+  "drupal_form_select": {
+    "scope": "php",
+    "prefix": "form_select",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'select',",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#default_value' => '${3:default}',",
+      "\t'#required' => ${4|TRUE,FALSE|},",
+      "\t'#access' => ${5|TRUE,FALSE|},",
+      "\t'#options' => [${6:array}],",
+      "\t'#empty_option' => $$this->t('${7:-- None --}'),",
+      "\t'#empty_value' => '${8:_none}',",
+      "\t'#sort_options' => ${9|TRUE,FALSE|},",
+      "\t'#sort_start' => 1,",
+      "\t'#multiple' => ${10|FALSE,TRUE|},",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Select"
+  },
+
+  "drupal_form_submit": {
+    "scope": "php",
+    "prefix": "form_submit",
+    "body": [
+      "$$form['${1:actions}']['${2:element_name}'] = [",
+      "\t'#type' => 'submit',",
+      "\t'#value' => $$this->t('${3:title}'),",
+      "\t'#attributes' => [",
+      "\t\t'class' => [",
+      "\t\t\t'btn-primary',",
+      "\t\t],",
+      "\t],",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Submit"
+  },
+
+  "drupal_form_table": {
+    "scope": "php",
+    "prefix": "form_table",
+    "body": [
+      "$$header = [$0];",
+      "$$rows = [];",
+      "",
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'table',",
+      "\t'#header' => $$header,",
+      "\t'#rows' => $$rows,",
+      "\t'#empty' => $$this->t('No data has been found.'),",
+      "\t'#responsive' => ${2|TRUE,FALSE|},",
+      "\t'#sticky' => ${3|FALSE,TRUE|},",
+      "];",
+    ],
+    "description": "Drupal 8|9: FormApi Table"
+  },
+
+  "drupal_form_tabs": {
+    "scope": "php",
+    "prefix": "form_tabs",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => ${2|'vertical_tabs','horizontal_tabs'|},",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Tabs"
+  },
+
+  "drupal_form_tel": {
+    "scope": "php",
+    "prefix": "form_tel",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'tel',",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#default_value' => '${3:default}',",
+      "\t'#required' => ${4|TRUE,FALSE|},",
+      "\t'#access' => ${5|TRUE,FALSE|},",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Telephone"
+  },
+
+  "drupal_form_textarea": {
+    "scope": "php",
+    "prefix": "form_textarea",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'textarea',",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#default_value' => '${3:default}',",
+      "\t'#rows' => '${4:4}',",
+      "\t'#cols' => '${5:25}',",
+      "\t'#required' => ${6|TRUE,FALSE|},",
+      "\t'#access' => ${7|TRUE,FALSE|},",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi Textarea"
+  },
+
+  "drupal_form_textfield": {
+    "scope": "php",
+    "prefix": "form_textfield",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'textfield',",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#default_value' => '${3:default}',",
+      "\t'#required' => ${4|TRUE,FALSE|},",
+      "\t'#access' => ${5|TRUE,FALSE|},",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi TextField"
+  },
+
+  "drupal_form_textformat": {
+    "scope": "php",
+    "prefix": "form_textformat",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'text_format',",
+      "\t'#title' => $$this->t('${2:title}'),",
+      "\t'#format' => '${3:full_html}',",
+      "\t'#allowed_formats' => [",
+      "\t\t'${3:full_html}',",
+      "\t],",
+      "\t'#allowed_format_hide_settings' => [",
+      "\t\t'hide_help' => '${4|TRUE,FALSE|}',",
+      "\t\t'hide_guidelines' => '${5|TRUE,FALSE|}',",
+      "\t],",
+      "\t'#after_build' => [",
+      "\t\t'_allowed_formats_remove_textarea_help',",
+      "\t],",
+      "\t'#default_value' => '${6:default}',",
+      "\t'#required' => ${7|TRUE,FALSE|},",
+      "\t'#access' => ${8|TRUE,FALSE|},",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi TextFormat"
+  },
+
+  "drupal_form_view": {
+    "scope": "php",
+    "prefix": "form_view",
+    "body": [
+      "$$form['${1:element_name}'] = [",
+      "\t'#type' => 'view',",
+      "\t'#name' => '$$view_name',",
+      "\t'#display_id' => '$$display_id',",
+      "\t'#arguments' => [,",
+      "\t\t'arg_1' => '${2:arg_1}',",
+      "\t\t'arg_2' => '${3:arg_2}',",
+      "\t],",
+      "];$0",
+    ],
+    "description": "Drupal 8|9: FormApi View"
+  }
+
+}

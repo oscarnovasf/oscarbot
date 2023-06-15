@@ -1,0 +1,77 @@
+{
+  "utils_db": {
+    "scope": "php",
+    "prefix": "utils_db",
+    "body": [
+      "$$sql = \"$0\";",
+      "",
+      "$$db = \\Drupal::database();",
+      "$$result = $$db->query($$sql);",
+      "",
+      "while ($$row = $$result->fetchAssoc()) {",
+      "}",
+    ],
+    "description": "Snippet de consulta a base de datos"
+  },
+
+  "utils_drupal_host": {
+    "scope": "php",
+    "prefix": "utils_drupal_host",
+    "body": [
+      "$$host = \\Drupal::request()->getSchemeAndHttpHost();$0",
+    ],
+    "description": "Snippet para obtener la url actual del sitio"
+  },
+
+  "utils_drupal_langcode": {
+    "scope": "php",
+    "prefix": "utils_drupal_langcode",
+    "body": [
+      "$$language = \\Drupal::languageManager()->getCurrentLanguage()->getId();$0",
+    ],
+    "description": "Snippet para obtener el idioma actual de Drupal"
+  },
+
+  "utils_drupal_log": {
+    "scope": "php",
+    "prefix": "utils_drupal_log",
+    "body": [
+      "\\Drupal::logger('custom_logger')->${1|info,notice,error,warning|}('<pre><code>' . print_r(${2:$$array}, TRUE) . '</code></pre>');$0",
+    ],
+    "description": "Snippet para crear un log en Drupal"
+  },
+
+  "utils_drupal_route_name": {
+    "scope": "php",
+    "prefix": "utils_drupal_route_name",
+    "body": [
+      "$$route_name = \\Drupal::routeMatch()->getRouteName();$0",
+    ],
+    "description": "Snippet para obtener la ruta actual"
+  },
+
+  "utils_dump": {
+    "scope": "php",
+    "prefix": "utils_dump",
+    "body": [
+      "echo '<pre><code>';",
+      "var_dump($0);",
+      "echo '</code></pre>';",
+    ],
+    "description": "PHP var_dump"
+  },
+
+  "utils_views_result": {
+    "scope": "php",
+    "prefix": "utils_views_result",
+    "body": [
+      "$$results = views_get_view_result('${1|view_name}', '${2|display_name}');",
+      "foreach ($$results as $$result) {",
+      "\t$$node = $$result->_entity;",
+      "\t$0",
+      "}",
+    ],
+    "description": "Snippet para obtener los resultados de una vista"
+  }
+
+}

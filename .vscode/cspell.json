@@ -1,0 +1,41 @@
+{
+  "version": "0.2",
+  "language": "en,es",
+
+  /* Rutas y archivos que no se van a verificar */
+  "ignorePaths": [
+    "node_modules",
+    "node_modules/**",
+    "**/node_modules",
+    "**/node_modules/**",
+
+    "vendor",
+    "vendor/**",
+    "**/vendor",
+    "**/vendor/**",
+
+    ".git",
+    ".vscode",
+    "*.json"
+  ],
+
+  /* Lista de palabras consideradas correctas */
+  "words": [
+    "autoload",
+    "autoloader",
+    "desactivación",
+    "drush",
+    "editorconfig",
+    "langcode",
+    "paginador",
+    "phpcbf",
+    "phpcs",
+    "phpmd",
+    "redirecciona",
+    "webform",
+    "xargs"
+  ],
+
+  /* Lista de palabras consideradas incorrectas */
+  "flagWords": []
+}

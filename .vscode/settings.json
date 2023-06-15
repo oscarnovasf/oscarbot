@@ -1,0 +1,791 @@
+{
+  /* ***************************************************************************
+   *
+   * El presente archivo de configuración está divido en las siguientes
+   * secciones:
+   *
+   * - CONFIGURACIÓN DE USUARIO: Configuraciones que deberán ser copiadas en el
+   *   settings.json del usuario y adaptadas según la configuración del SO del
+   *   PC dónde se ejecute VSCode. Algunas de ellas sólo funcionan si se
+   *   configuran en dicho archivo.
+   *
+   * - CONFIGURACIÓN DEL PROYECTO: Configuraciones que pueden variar según el
+   *   proyecto en el que se trabaje y que deben ser modificadas por cada
+   *   desarrollador.
+   *
+   * - CONFIGURACIÓN GENERAL DEL EDITOR: Configuraciones fijas que se pueden
+   *   copiar en el settings.json del usuario o mantener en un archivo por
+   *   proyecto. Son configuraciones fijas que no necesitan modificación por
+   *   parte del desarrollador.
+   *
+   * - CONFIGURACIÓN DE MÓDULOS Y PLUGINS: Configuraciones específicas de los
+   *   módulos propuestos en el archivo extensions.json. Al igual que las
+   *   configuraciones anteriores se pueden copiar el el settings.json del
+   *   usuario o mantenerlas en un archivo por proyecto.
+   *
+   * - CONFIGURACIÓN ESPECÍFICA PARA ALGUNOS LENGUAJES: Son alteraciones de las
+   *   configuraciones anteriores específicas para algunos lenguajes. Se puede
+   *   proceder con ellas como en los dos casos anteriores.
+   *
+   * **************************************************************************/
+
+  /* ***************************************************************************
+   * 1.- CONFIGURACIÓN DE USUARIO:
+   * **************************************************************************/
+
+  /* Gracias a platform-settings diferenciamos configuraciones según SO */
+  "platformSettings.platforms": {
+    "linux": {
+      "nodes": {
+        /* Code Runner */
+        "code-runner.executorMap":{
+          "javascript": "node",
+          "php": "/usr/bin/php",
+          "shellscript": "bash",
+          "sass": "sass --style expanded",
+          "scss": "scss --style expanded",
+          "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+          "html": "/usr/bin/google-chrome-stable",
+        },
+
+        /* PHP */
+        "php.validate.executablePath": "/usr/bin/php",
+        "phpserver.phpPath": "/usr/bin/php",
+
+        /* phpcbf */
+        "phpcbf.executablePath": "/usr/bin/phpcbf",
+
+        /* phpcs */
+        "phpcs.executablePath": "/usr/bin/phpcs",
+
+        /* PHP Mess Detector */
+        "phpmd.command": "/usr/bin/phpmd",
+
+        /* ShellCheck */
+        "shellcheck.executablePath": "/usr/bin/shellcheck",
+      }
+    },
+
+    "darwin": {
+      "nodes": {
+        /* Code Runner */
+        "code-runner.executorMap":{
+          "javascript": "node",
+          "php": "/opt/homebrew/bin/php",
+          "shellscript": "bash",
+          "sass": "sass --style expanded",
+          "scss": "scss --style expanded",
+          "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+          "html": "/Applications/Google Chrome.app",
+        },
+
+        /* PHP */
+        "php.validate.executablePath": "/opt/homebrew/bin/php",
+        "phpserver.phpPath": "/opt/homebrew/bin/php",
+
+        /* phpcbf */
+        "phpcbf.executablePath": "/Users/onovas/.composer/vendor/bin/phpcbf",
+
+        /* phpcs */
+        "phpcs.executablePath": "/Users/onovas/.composer/vendor/bin/phpcs",
+
+        /* PHP Mess Detector */
+        "phpmd.command": "/opt/homebrew/bin/phpmd",
+
+        /* ShellCheck */
+        "shellcheck.executablePath": "/opt/homebrew/bin/shellcheck",
+      }
+    },
+
+    "win32": {
+      "nodes": {
+        /* PHP */
+        "php.validate.executablePath": "C:\\laragon\\bin\\php\\php-7.4.14-nts-Win32-vc15-x64\\php.exe",
+        "phpserver.phpPath": "C:\\laragon\\bin\\php\\php-7.4.14-nts-Win32-vc15-x64\\php.exe",
+
+        /* PHP Mess Detector */
+        "phpmd.command": "%appdata%\\Composer\\vendor\\bin\\phpmd.bat",
+
+        /* Modificaciones en el terminal */
+        "terminal.external.windowsExec": "${env:programfiles}\\Git\\bin\\bash.exe",
+        "terminal.integrated.automationProfile.windows": {
+          "path": "${env:programfiles}\\Git\\bin\\bash.exe",
+        },
+        "terminal.integrated.defaultProfile.windows": "GitBash",
+        "terminal.integrated.profiles.windows": {
+          "Commander (Laragon)": {
+            "path": "C:\\laragon\\bin\\cmder\\Cmder.bat",
+            "args": ["${workspaceFolder}"]
+          },
+          "GitBash": {
+            "path": "${env:programfiles}\\Git\\bin\\bash.exe",
+            "args": ["-l"]
+          },
+          "CMD": {
+            "path": "${env:windir}\\system32\\cmd.exe",
+            "args": ["${workspaceFolder}"]
+          }
+        }
+      }
+    }
+  },
+
+  /* PHPUnit Test Explorer */
+  "phpunit.showAfterExecution": "always",
+
+  /* Project Manager */
+  "projectManager.sortList": "Name",
+
+  "security.workspace.trust.untrustedFiles": "open",
+
+  /* Telemetría */
+  "telemetry.telemetryLevel": "off",
+
+  /* Ventanas de VSCode */
+  "window.dialogStyle": "custom",
+  "window.newWindowDimensions": "maximized",
+  "window.openFoldersInNewWindow": "on",
+
+  /* ***************************************************************************
+   * 2.- CONFIGURACIÓN DEL PROYECTO:
+   * **************************************************************************/
+
+  /* Live Sass Compiler */
+  "liveSassCompile.settings.formats":[
+    {
+      "extensionName": ".min.css",
+      "format": "compressed",
+      "savePath": "~/../css"
+    }
+  ],
+  "liveSassCompile.settings.excludeList": [
+    "/**/node_modules/**",
+    "/.vscode/**",
+    "/**/themes/contrib/**",
+    "/**/libraries/**"
+  ],
+  "liveSassCompile.settings.generateMap": true,
+  "liveSassCompile.settings.autoprefix": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "liveSassCompile.settings.showOutputWindowOn": "Error",
+  "liveSassCompile.settings.useNewCompiler": true,
+
+  /* NPM */
+  "npm.packageManager": "npm",
+
+  /* PHPUnit Test Explorer */
+  "phpunit.command": "lando ssh -c",
+  "phpunit.clearOutputOnRun": true,
+  "phpunit.php": "php",
+  "phpunit.phpunit": "/app/vendor/bin/phpunit",
+  "phpunit.args": [
+    "-c",
+    "phpunit.xml"
+  ],
+  "phpunit.paths": {
+    "${workspaceFolder}": "/app",
+  },
+
+  /* ***************************************************************************
+   * 3.- CONFIGURACIÓN GENERAL DEL EDITOR
+   * **************************************************************************/
+
+  "breadcrumbs.enabled": true,
+
+  "css.validate": true,
+
+  "debug.terminal.clearBeforeReusing": true,
+
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  "editor.autoIndent": "full",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": false
+  },
+  "editor.colorDecorators": false,
+  "editor.cursorBlinking": "expand",
+  "editor.detectIndentation": true,
+  "editor.fontSize": 14,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.guides.bracketPairs": true,
+  "editor.insertSpaces": true,
+  "editor.linkedEditing": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.rulers": [80],
+  "editor.stickyScroll.enabled": false,
+  "editor.tabSize": 2,
+  "editor.unicodeHighlight.includeComments": true,
+  "editor.wordWrapColumn": 80,
+  "editor.wordWrap": "off",
+
+  "emmet.includeLanguages": {
+    "twig": "html"
+  },
+
+  "explorer.compactFolders": false,
+  "explorer.openEditors.visible": 1,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "explorer.autoRevealExclude": {
+    "**/node_modules": true,
+    "**/bower_components": true
+  },
+
+  "extensions.ignoreRecommendations": false,
+
+  "files.associations": {
+    "*.env.development": "env",
+    "*.env.docker": "env",
+    "*.env.production": "env",
+    "*.env.example": "env",
+    "*.inc": "php",
+    "*.install": "php",
+    "*.module": "php",
+    "*.php": "php",
+    "*.theme": "php",
+    "*.tmpl": "html",
+    "*.tpl.php": "php",
+    "*.test": "php",
+    "*.twig": "html",
+    ".gitignore_tasks": "gitignore"
+  },
+  "files.autoSave": "onFocusChange",
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.exclude": {
+    ".github/": true,
+    ".tmp-doc/": true,
+    "node_modules/": true,
+    "package-lock.json": true,
+    "composer.lock": true,
+    "debug.log": true
+  },
+  "files.insertFinalNewline": true,
+  "files.readonlyInclude": {
+    "**/node_modules/**": true,
+    "vendor/**": true,
+    "core/**": true,
+    "modules/contrib/**": true,
+    "themes/contrib/**": true,
+
+    "web/core/**": true,
+    "web/modules/contrib/**": true,
+    "web/themes/contrib/**": true,
+
+    "package-lock.json": true,
+    "composer.lock": true
+  },
+  "files.restoreUndoStack": false,
+  "files.trimTrailingWhitespace": true,
+
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.ignoreRebaseWarning": true,
+  "git.mergeEditor": true,
+  "git.postCommitCommand": "push",
+  "git.showPushSuccessNotification": false,
+
+  "html.completion.attributeDefaultValue": "doublequotes",
+  "html.format.enable": true,
+  "html.format.wrapLineLength": 80,
+
+  "json.maxItemsComputed": 50000,
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "composer.json",
+        "composer.*.json"
+      ],
+      "url": "https://raw.githubusercontent.com/composer/composer/master/res/composer-schema.json"
+    },
+    {
+      "fileMatch": [
+        "package.json",
+      ],
+      "url": "https://json.schemastore.org/package.json"
+    }
+  ],
+
+  "php.validate.enable": true,
+  "php.validate.run": "onType",
+  "php.suggest.basic": false,
+
+  "terminal.integrated.autoReplies": {
+    "[oh-my-zsh] Would you like to update? [Y/n]": "Y\r"
+  },
+
+  /* Sólo si se tiene instalado oh-my-zsh */
+  "terminal.integrated.fontFamily": "Meslo LG S DZ for Powerline",
+
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.shellIntegration.enabled": true,
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.tabs.enabled": true,
+
+  "window.commandCenter": true,
+
+  "workbench.colorTheme": "Monokai Dimmed",
+  "workbench.editorLargeFileConfirmation": 1024,
+  "workbench.editor.decorations.badges": true,
+  "workbench.editor.decorations.colors": true,
+  "workbench.editor.wrapTabs": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.localHistory.maxFileEntries": 25,
+  "workbench.settings.editor": "json",
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "newUntitledFile",
+
+  /* ***************************************************************************
+   * 4.- CONFIGURACIÓN DE MÓDULOS Y PLUGINS:
+   * **************************************************************************/
+
+  /* Activitus Bar
+   *
+   * Para añadir nuevos módulos:
+   * - Buscar en los atajos de teclado workbench.view.extension.
+   * - Identificar el módulo que queremos abrir.
+   * - Generar la view con command.workbench.view.extension.(nombre)
+   *
+   * Para los iconos:
+   * https://microsoft.github.io/vscode-codicons/dist/codicon.html
+   */
+  "activitusbar.views": [
+    {
+      "name": "command.workbench.action.reloadWindow",
+      "codicon": "refresh",
+      "tooltip": "Recargar VSCode"
+    },
+
+    {
+      "name": "extensions",
+      "codicon": "extensions-view-icon",
+      "tooltip": "Extensiones"
+    },
+    {
+      "codicon": "kebab-vertical"
+    },
+    {
+      "name": "command.workbench.view.extension.bookmarks",
+      "codicon": "bookmark",
+      "tooltip": "Bookmarks"
+    },
+    {
+      "name": "command.workbench.view.extension.lando-ui",
+      "codicon": "dashboard",
+      "tooltip": "Lando UI"
+    },
+    {
+      "name": "command.workbench.view.extension.todo-tree-container",
+      "codicon": "checklist",
+      "tooltip": "TODOs"
+    },
+
+    {
+      "codicon": "kebab-vertical"
+    },
+    {
+      "name": "task.hidden_actualizar_tasks_json",
+      "codicon": "tasklist",
+      "tooltip": "Actualizar Tasks.json"
+    },
+    {
+      "name": "command.replacerules.runRuleset",
+      "codicon": "symbol-ruler",
+      "tooltip": "Quitar datos innecesarios para composer.json"
+    }
+  ],
+
+  /* AutoHide */
+  "autoHide.autoHidePanel": false,
+  "autoHide.autoHideSideBar": true,
+  "autoHide.hideOnOpen": false,
+  "autoHide.panelDelay": 0,
+  "autoHide.sideBarDelay": 10,
+
+  /* Bookmarks */
+  "bookmarks.saveBookmarksInProject": true,
+
+  /* Code Runner */
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.runInTerminal": true,
+
+  /* Code Spell Checker => El resto de configuraciónes => cspell.json */
+  "cSpell.enabled": true,
+  "cSpell.language": "en,es",
+
+  /* Color Highlight */
+  "color-highlight.markerType": "background",
+  "color-highlight.markRuler": false,
+
+  /* Commit Message Editor*/
+  "commit-message-editor.tokens": [
+    {
+      "label": "Tipo de commit",
+      "name": "type",
+      "type": "enum",
+      "description": "Indica el tipo de commit siguiento las reglas de 'Conventional Commits':",
+      "options": [
+        {
+          "label": "---",
+          "value": ""
+        },
+        {
+          "label": "init",
+          "description": "Commit inicial (inicio del proyecto)."
+        },
+        {
+          "label": "chore",
+          "description": "Tarea de mantenimiento que no produce código fuente."
+        },
+        {
+          "label": "ci",
+          "description": "Cambios relacionados con CI/CD (por ejemplo: Travis, Ansible, GitLab CI/CD, Jenkins...)."
+        },
+        {
+          "label": "doc",
+          "description": "Cambios relacionados con la documentación."
+        },
+        {
+          "label": "feat",
+          "description": "Nueva funcionalidad."
+        },
+        {
+          "label": "fix",
+          "description": "Reparación de un error."
+        },
+        {
+          "label": "refactor",
+          "description": "Cambios en el código que no arreglan bugs ni añaden nuevas funcionalidades."
+        },
+        {
+          "label": "test",
+          "description": "Añadir o corregir pruebas unitarias o tests en general."
+        }
+      ]
+    },
+    {
+      "label": "Alcance",
+      "name": "scope",
+      "type": "text",
+      "description": "Se puede proporcionar un alcance al tipo de un commit, para proporcionar información contextual adicional (encerrada entre paréntesis - ej., \"feat(parser): ...\".",
+      "multiline": false,
+      "prefix": "(",
+      "suffix": ")"
+    },
+    {
+      "label": "Mensaje",
+      "name": "description",
+      "type": "text",
+      "description": "Descripción corta del commit.",
+      "multiline": false
+    },
+    {
+      "label": "Descripción",
+      "name": "body",
+      "type": "text",
+      "description": "Descripción detallada del commit (opcional)",
+      "multiline": true,
+      "lines": 5,
+      "maxLines": 10
+    },
+    {
+      "label": "Breaking change",
+      "name": "breaking_change",
+      "type": "boolean",
+      "description": "Marcar si este commit provoca un cambio de la versión principal.",
+      "value": "BREAKING CHANGE: ",
+      "default": false
+    },
+    {
+      "label": "Pie del mensaje",
+      "name": "footer",
+      "type": "text",
+      "description": "Texto final del commit. Se puede usar para marcar la issue relacionada (ej. closes #21)",
+      "multiline": true,
+      "lines": 3,
+      "maxLines": 5
+    },
+  ],
+  "commit-message-editor.view.defaultView": "form",
+  "commit-message-editor.view.saveAndClose": true,
+  "commit-message-editor.view.showRecentCommits": true,
+
+  /* Draw.io */
+  "hediet.vscode-drawio.theme": "Kennedy",
+
+  /* Editor Macros */
+  "editormacros": {
+    /* Keybindings.json (Windows) => ctrl+shift+d */
+    /* Keybindings.json (MAC) => ctrl+shift+d */
+    "commentDown": {
+      "type": "command",
+      "args": {
+          "commands": [
+            "editor.action.copyLinesDownAction",
+            "cursorUp",
+            "editor.action.addCommentLine",
+            "cursorDown"
+          ]
+      }
+    },
+
+    /* Keybindings.json (Windows) => alt+v */
+    /* Keybindings.json (MAC) => alt+v */
+    "pasteComposer": {
+      "type": "multiple",
+      "args": {
+        "macros": [
+          {
+            "type": "command",
+            "args": {
+              "commands": [
+                "editor.action.clipboardPasteAction",
+                {
+                  "command": "replacerules.runRule",
+                  "args": {
+                    "ruleName": "Quitar datos innecesarios para composer.json"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+
+  /* Empty Indent */
+  "emptyIndent.exclude": [
+    ".md"
+  ],
+  "emptyIndent.highlightColor": "rgba(246,36,89,0.6)",
+  "emptyIndent.highlightIndent": false,
+  "emptyIndent.removeIndent": true,
+
+  /* Git Blame*/
+  "gitblame.inlineMessageEnabled": true,
+  "gitblame.inlineMessageFormat": "${author.name} (${time.ago}) - ${commit.summary}",
+
+  /* Git History */
+  "gitHistory.includeRemoteBranches": true,
+
+  /* GitLab Workflow */
+  "gitlab.customQueries": [
+    {
+      "name": "Issues (asignadas para mi)",
+      "type": "issues",
+      "scope": "assigned_to_me",
+      "state": "opened",
+      "noItemText": "-- Vacío --"
+    },
+    {
+      "name": "Issues (creadas por mi)",
+      "type": "issues",
+      "scope": "created_by_me",
+      "state": "opened",
+      "noItemText": "-- Vacío --"
+    },
+    {
+      "name": "MR (asignadas para mi)",
+      "type": "merge_requests",
+      "scope": "assigned_to_me",
+      "state": "opened",
+      "noItemText": "-- Vacío --"
+    },
+    {
+      "name": "MR (estoy revisando)",
+      "type": "merge_requests",
+      "reviewer": "<current_user>",
+      "state": "opened",
+      "noItemText": "-- Vacío --"
+    },
+    {
+      "name": "MR (creadas por mi)",
+      "type": "merge_requests",
+      "scope": "created_by_me",
+      "state": "opened",
+      "noItemText": "-- Vacío --"
+    }
+  ],
+  "gitlab.showProjectMergeRequests": false,
+  "gitlab.showPipelineUpdateNotifications": false,
+
+  /* Json Editor */
+  "vscode-json-editor.theme": "dark",
+
+  /* Nyan mode */
+  "nyanMode.nyanDisplayPercent": true,
+  "nyanMode.nyanColor": "#fff",
+
+  /* phpcbf */
+  "phpcbf.enable": true,
+  "phpcbf.documentFormattingProvider": true,
+  "phpcbf.onsave": false,
+  "phpcbf.standard": "Drupal",
+
+  /* PHP Code Sniffer */
+  "phpcs.enable": true,
+  "phpcs.standard": "Drupal,DrupalPractice",
+
+  /* PHP DocBlocks */
+  "php-docblocker.gap": true,
+  "php-docblocker.returnVoid" : false,
+  "php-docblocker.useShortNames": true,
+
+  /* PHP Mess Detector */
+  "phpmd.enabled": true,
+  "phpmd.rules": "${workspaceFolder}/phpmd.xml",
+  "phpmd.verbose": false,
+
+  /* PHP Server */
+  "phpserver.port": 8888,
+
+  /* Platform-Settings */
+  "platformSettings.autoLoad": true,
+
+  /* Project Manager */
+  "projectManager.groupList": true,
+  "projectManager.removeCurrentProjectFromList": true,
+  "projectManager.tags": [
+    "Composer",
+    "Drush",
+    "Templates",
+    "Scripts"
+  ],
+
+  /* Replace Rules */
+  "replacerules.rules": {
+    "Quitar datos innecesarios para composer.json": {
+      "find": "composer require (')(.+)(:)(.+)(')",
+      "replace": "\"$2\": \"$4\","
+    },
+  },
+
+  "replacerules.rulesets": {
+    "Remove lots of stuff": {
+      "rules": [
+        "Quitar datos innecesarios para composer.json"
+      ]
+    }
+  },
+
+  /* ShellCheck */
+  "shellcheck.enable": true,
+  "shellcheck.ignorePatterns": {
+    "**/.git/*.sh": true
+  },
+  "shellcheck.run": "onType",
+
+  /* Task Manager */
+  "taskManager.exclude": "hidden:|hidden_|vendor|web/core|web/themes/contrib|web/libraries|web/modules/contrib|web/themes/contrib",
+
+  /* Thunder Client */
+  "thunder-client.saveToWorkspace": true,
+  "thunder-client.workspaceRelativePath": "docs",
+
+  /* TO-DO TREE */
+  "todo-tree.general.tags": [
+    "TODO",
+    "FIXME",
+    "CHANGES",
+    "INFO",
+  ],
+  "todo-tree.filtering.excludeGlobs":[
+    "**/.tmp-doc",
+    "**/.vscode/**",
+    "**/documentation/**",
+    "**/node_modules/**",
+    "**/vendor/**"
+  ],
+  "todo-tree.highlights.enabled": true,
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "icon": "check",
+      "type": "line",
+      "foreground": "#008000",
+      "iconColour": "#008000"
+    },
+    "FIXME": {
+      "icon": "alert",
+      "type": "line",
+      "foreground": "#FF0000",
+      "iconColour": "#FF0000"
+    },
+    "CHANGES": {
+      "icon": "info",
+      "type": "line",
+      "foreground": "#FFA500",
+      "iconColour": "#FFA500"
+    },
+    "INFO": {
+      "icon": "info",
+      "type": "line",
+      "foreground": "#FFFF00",
+      "iconColour": "#FFFF00"
+    }
+  },
+  "todo-tree.regex.regex": "((//|#|;)[ ]*($TAGS)[^\\n]*)|(/\\*(\\*?\\s*)*($TAGS)(.|\\n|\\r)*?\\*/)|(<!--\\s*($TAGS)(.|\\n|\\r)*?-->)",
+
+  /* UNotes */
+  "unotes.rootPath": "${workspaceFolder}/docs/notes",
+
+  /* ***************************************************************************
+   * 5.- CONFIGURACIÓN ESPECÍFICA PARA ALGUNOS LENGUAJES:
+   * **************************************************************************/
+
+  "[csv]": {
+    "files.insertFinalNewline": false,
+  },
+
+  "[csv (semicolon)]": {
+    "files.insertFinalNewline": false,
+  },
+
+  "[env]": {
+    "files.insertFinalNewline": false,
+  },
+
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "editor.tabSize": 4,
+    "files.insertFinalNewline": false,
+  },
+
+  "[jsonc]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "files.insertFinalNewline": false,
+  },
+
+  "[markdown]": {
+    "files.insertFinalNewline": false,
+    "files.trimTrailingWhitespace": false,
+  },
+
+  "[python]": {
+    "editor.formatOnType": true,
+  },
+
+  "[shellscript]": {
+    "files.insertFinalNewline": false,
+  },
+
+  "[xml]": {
+    "files.insertFinalNewline": false,
+  },
+
+  "[yaml]": {
+    "files.insertFinalNewline": false,
+  },
+
+}
