@@ -79,7 +79,6 @@
         "drupal/views_bulk_operations": "^4.1",
         "drupal/views_data_export": "^1.2",
         "drupal/view_password": "^6.0",
-        "drupal/webform_views": "^5.0@alpha",
 
         "npm-asset/select2": "^4.0",
 
@@ -97,7 +96,7 @@
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "RC",
     "prefer-stable": true,
     "config": {
         "process-timeout": 0,
