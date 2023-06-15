@@ -1,0 +1,7 @@
+langcode: es
+status: true
+dependencies: {  }
+id: manager
+label: Manager
+description: ''
+locked: false

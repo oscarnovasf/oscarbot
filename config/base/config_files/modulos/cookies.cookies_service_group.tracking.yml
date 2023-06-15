@@ -1,0 +1,8 @@
+langcode: es
+status: true
+dependencies: {  }
+id: tracking
+label: Tracking
+weight: 10
+title: Estadísticas
+details: 'Este tipo de cookies también conocidas como analíticas, nos permiten como responsables de este sitio web, medir la actividad, usos y accesos a los distintos contenidos y servicios disponibles con el fin de introducir mejoras o nuevos servicios.'

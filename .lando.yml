@@ -1,0 +1,159 @@
+name: oscarbot
+recipe: drupal10
+
+config:
+  webroot: web
+  php: '8.1'
+  composer_version: 2-latest
+  drush: ^11
+  xdebug: debug
+  config:
+    php: ./.lando/php/php.ini
+
+services:
+  # Configuración del contenedor principal.
+  appserver:
+    build:
+      - ./.lando/scripts/prepare_lando.sh
+    build_as_root:
+      - find ./.lando/scripts/ -type f -iname "*.sh" -exec chmod +x {} \;
+      - ./.lando/scripts/prepare_lando_root.sh
+    run:
+      - find ./scripts/shell/ -type f -iname "*.sh" -exec chmod +x {} \;
+      - ./scripts/shell/install.sh
+    scanner:
+      maxRedirects: 0
+      timeout: 2000
+      retry: 10
+    overrides:
+      environment:
+        # PHPUnit.
+        SIMPLETEST_BASE_URL: "https://oscarbot.lndo.site"
+        SIMPLETEST_DB: "mysql://uoscarbot:JH1xnO3Vi5XgLQ4@database/oscarbot"
+        # Mailhog.
+        PHP_SENDMAIL_PATH: '/usr/sbin/sendmail -S mailhog:1025'
+
+  # Configuración de la base de datos.
+  database:
+    type: mariadb
+    portforward: 3307
+    creds:
+      user: uoscarbot
+      database: oscarbot
+      password: JH1xnO3Vi5XgLQ4
+
+  # Captura de correos.
+  mailhog:
+    type: mailhog
+    portforward: true
+    hogfrom:
+      - appserver
+
+  # Gestión de la base de datos.
+  adminer:
+    type: compose
+    services:
+      image: dehy/adminer
+      command: '/bin/s6-svscan /etc/services.d'
+    portforward: true
+    depends_on:
+      - database
+
+  # Gestión de caché.
+  cache:
+    type: redis
+    portforward: 6380
+    persist: true
+
+proxy:
+  appserver:
+    - oscarbot.lndo.site
+    - cdn.oscarbot.lndo.site
+  mailhog:
+    - mail.oscarbot.lndo.site
+  adminer:
+    - db.oscarbot.lndo.site
+
+tooling:
+
+  # ############################################################################
+  #  Zona de herramientas.
+  # ############################################################################
+
+  # lanto test
+  test:
+    service: appserver
+    description: Ejecución PHPUnit pasando la suite que queremos ejecutar.
+    cmd: "php /app/vendor/bin/phpunit -c /app/phpunit.xml --testsuite"
+
+  # lando redis-cli
+  redis-cli:
+    service: cache
+    description: Ejecución del cli de Redis.
+
+  # ############################################################################
+  #  Zona de Scripts personalizados.
+  # ############################################################################
+
+  # lando druli
+  druli:
+    service: appserver
+    description: Ejecuta 'drush uli' con la URI del proyecto.
+    cmd:
+      - appserver: drush uli --uri=https://oscarbot.lndo.site
+
+  # lando db [ex|im]
+  db:
+    service: appserver
+    description: Importar o exportar base de datos.
+    cmd:
+      - ./scripts/shell/db.sh
+
+  # lando deploy
+  deploy:
+    service: appserver
+    description: Ejecutar deploy en entorno de desarrollo.
+    cmd:
+      - ./scripts/shell/deploy.sh
+    user: root
+
+  # lando dev [on|off]
+  dev:
+    service: appserver
+    description: Cambiar el tipo de entorno modificando los módulos y configuraciones.
+    cmd:
+      - ./scripts/shell/dev_mode.sh
+
+  # lando initialize
+  initialize:
+    service: appserver
+    description: Borra la instalación actual y restablece el proyecto a su estado inicial.
+    cmd:
+      - ./scripts/shell/initialize.sh
+    user: root
+
+  # lando phpcs
+  phpcs:
+    service: appserver
+    description: Ejecutar tareas de Code Sniffer.
+    cmd:
+      - ./scripts/shell/phpcs.sh
+
+  # lando trans [ex|im]
+  trans:
+    service: appserver
+    description: Importar o exportar traducciones.
+    cmd:
+      - ./scripts/shell/trans.sh
+
+  # ############################################################################
+  #  Zona de modificación de Lando.
+  # ############################################################################
+
+  # lando xdebug [on|off]
+  xdebug:
+    service: appserver
+    description: Activar/Desactivar xdebug.
+    cmd:
+      - ./.lando/scripts/xdebug.sh
+    user: root

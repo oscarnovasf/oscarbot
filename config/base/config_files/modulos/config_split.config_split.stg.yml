@@ -1,0 +1,16 @@
+langcode: en
+status: false
+dependencies: {  }
+id: stg
+label: stg
+description: ''
+weight: 2
+stackable: false
+storage: folder
+folder: ../config/sync/stg
+module:
+  cdn: 0
+  cdn_ui: 0
+theme: {  }
+complete_list: {  }
+partial_list: {  }

@@ -1,0 +1,8 @@
+langcode: es
+status: true
+dependencies: {  }
+id: marketing
+label: Marketing
+weight: 20
+title: Marketing
+details: 'Estas cookies almacenan información sobre el comportamiento de las personas usuarias de este sitio web obtenida a través de la observación continuada de sus hábitos de navegación con el fin de desarrollar un perfil específico para ofrecer servicios e informaciones personalizadas en función del mismo.'
