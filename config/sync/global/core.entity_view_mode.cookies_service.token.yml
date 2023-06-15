@@ -1,0 +1,10 @@
+uuid: 2283e163-dc9a-4d21-b1d0-f682ab662a8d
+langcode: es
+status: true
+dependencies:
+  module:
+    - cookies
+id: cookies_service.token
+label: Comodín
+targetEntityType: cookies_service
+cache: true

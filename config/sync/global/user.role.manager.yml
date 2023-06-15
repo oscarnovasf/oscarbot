@@ -1,0 +1,33 @@
+uuid: d5077d9b-0be3-4f0c-955f-32aca2b99f15
+langcode: es
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+    - node.type.page
+  module:
+    - filter
+    - node
+    - system
+    - taxonomy
+    - toolbar
+id: manager
+label: Manager
+weight: 4
+is_admin: null
+permissions:
+  - 'access site in maintenance mode'
+  - 'access site reports'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'administer users'
+  - 'create page content'
+  - 'delete all revisions'
+  - 'edit any page content'
+  - 'revert all revisions'
+  - 'use text format full_html'
+  - 'view all revisions'
+  - 'view own unpublished content'
+  - 'view the administration theme'
+  - 'view user email addresses'

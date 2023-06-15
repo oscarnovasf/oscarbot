@@ -1,0 +1,10 @@
+uuid: dbdda670-1d8e-42d3-baaf-d4db841e3e70
+langcode: es
+status: true
+dependencies:
+  module:
+    - cookies
+id: cookies_service_group.token
+label: Comodín
+targetEntityType: cookies_service_group
+cache: true

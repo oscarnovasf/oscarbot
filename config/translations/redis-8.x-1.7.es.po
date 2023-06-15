@@ -1,0 +1,26 @@
+# Spanish translation of Redis (8.x-1.7)
+# Copyright (c) 2023 by the Spanish translation team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Redis (8.x-1.7)\n"
+"POT-Creation-Date: 2023-06-07 22:46+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Language-Team: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "Version"
+msgstr "Versión"
+msgid "Performance"
+msgstr "Rendimiento"
+msgid "Client"
+msgstr "Cliente"
+msgid "Read/Write"
+msgstr "Lectura/Escritura"
+msgid "Keys"
+msgstr "Claves"
+msgid "Memory"
+msgstr "Memoria"

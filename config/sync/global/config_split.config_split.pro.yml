@@ -1,0 +1,17 @@
+uuid: c66c45ee-0705-44d4-8234-895c98eef403
+langcode: en
+status: false
+dependencies: {  }
+id: pro
+label: pro
+description: ''
+weight: 3
+stackable: false
+storage: folder
+folder: ../config/sync/pro
+module:
+  cdn: 0
+  cdn_ui: 0
+theme: {  }
+complete_list: {  }
+partial_list: {  }

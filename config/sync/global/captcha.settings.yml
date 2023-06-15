@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: hSAUW7BoAd9YUpKcVKyZpW4wY67g4XZAYlt3Vnz6SVA
+langcode: es
+enabled_default: 0
+default_challenge: captcha/Math
+description: 'Esta pregunta es para comprobar si usted es un visitante humano y prevenir envíos de spam automatizado.'
+administration_mode: false
+allow_on_admin_pages: false
+whitelist_ips: ''
+add_captcha_description: true
+wrong_captcha_response_message: 'La respuesta que ingresó para el código de verificación no fue correcta.'
+default_validation: 1
+persistence: 1
+enable_stats: false
+log_wrong_responses: false

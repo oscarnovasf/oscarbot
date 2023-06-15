@@ -1,0 +1,20 @@
+uuid: 9a894f3d-de65-4719-9ac9-43d15d234e42
+langcode: es
+status: true
+dependencies:
+  module:
+    - user
+_core:
+  default_config_hash: gdjGWtW1jFD4Z2y7UovfbpF3m3ln7By0xqRc0_6U9Qc
+id: user.register_pending_approval
+configuration:
+  email_subject:
+    value: 'Detalles de cuenta para [user:display-name] en [site:name] (pendiente de aprobación por el administrador)'
+  email_body:
+    content:
+      value: |-
+        <p>[user:display-name],</p>
+        <p>Thank you for registering at <a href="[site:url]">[site:name]</a>.
+        Your application for an account is currently pending approval.
+        Once it has been approved, you will receive another email containing information about how to log in, set your password, and other details.</p>
+      format: email_html

@@ -345,15 +345,10 @@ function create_manager() {
     administer users, \
     create page content, \
     delete all revisions, \
-    delete any webform submission, \
     edit any page content, \
-    edit any webform submission, \
-    edit config_pages entity, \
     revert all revisions, \
     use text format full_html, \
     view all revisions, \
-    view any webform submission, \
-    view config_pages entity, \
     view own unpublished content, \
     view the administration theme, \
     view user email addresses \

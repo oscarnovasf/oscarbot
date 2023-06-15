@@ -1,0 +1,6 @@
+_core:
+  default_config_hash: Bi0EyyiH6m5wpHRfxlKhqTIhAZayhRQudheDzAcrotU
+langcode: es
+toolbar_integration:
+  - toolbar
+favicon: true

@@ -1,0 +1,6 @@
+_core:
+  default_config_hash: A--rOlO0PxUWXyeRgvdh4gmYlQpq3FiU9u35vXPcOgE
+langcode: es
+excludes:
+  user: user
+  user_role: user_role

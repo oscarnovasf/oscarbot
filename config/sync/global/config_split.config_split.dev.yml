@@ -1,0 +1,20 @@
+uuid: 59629843-7750-405c-9940-58e5d9e44b1b
+langcode: en
+status: false
+dependencies: {  }
+id: dev
+label: dev
+description: ''
+weight: 1
+stackable: false
+storage: folder
+folder: ../config/sync/dev
+module:
+  cdn: 0
+  cdn_ui: 0
+  devel: 0
+  devel_kint_extras: 0
+  devel_php: 0
+theme: {  }
+complete_list: {  }
+partial_list: {  }

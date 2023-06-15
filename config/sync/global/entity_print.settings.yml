@@ -1,0 +1,8 @@
+langcode: es
+default_css: true
+force_download: true
+print_engines:
+  pdf_engine: dompdf
+  epub_engine: ''
+  word_docx_engine: ''
+base_url: ''

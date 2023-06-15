@@ -1,0 +1,20 @@
+uuid: 05a032cd-d4f0-4633-91ee-ff4e1ab245c6
+langcode: es
+status: true
+dependencies:
+  module:
+    - user
+_core:
+  default_config_hash: UHTbwGbdSCyX2ahr4mXkeXx7pv_RPytuoDSLaPtk1is
+id: user.status_canceled
+configuration:
+  email_subject:
+    value: 'Detalles de cuenta para [user:display-name] en [site:name] (cancelado)'
+  email_body:
+    content:
+      value: |-
+        <p>[user:display-name],</p>
+        <p>Your account on <a href="[site:url]">[site:name]</a> has been canceled.</p>
+      format: email_html
+  email_skip_sending:
+    message: 'Notification disabled in settings'

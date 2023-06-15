@@ -3,7 +3,7 @@
     "description": "Plantilla de instalación de Drupal",
     "type": "project",
     "license": "GPL-3.0-or-later",
-    "version": "3.0.0",
+    "version": "3.2.0",
 
     "repositories": [
         {
@@ -40,7 +40,6 @@
         "drupal/cdn": "^4.0",
         "drupal/config_filter": "^2.2",
         "drupal/config_ignore": "^3.0@beta",
-        "drupal/config_pages": "^2.9",
         "drupal/config_split": "^2.0@beta",
         "drupal/coffee": "^1.2",
         "drupal/cookies": "^1.1",
