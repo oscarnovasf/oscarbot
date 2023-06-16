@@ -1,0 +1,31 @@
+################################################################################
+# MENÚ GLOBAL PARA LOS MÓDULOS CUSTOM                                          #
+################################################################################
+
+# Menú de configuración para todas las herramientas.
+custom_module.global.admin:
+  title: 'Custom Modules'
+  route_name: custom_module.global.admin
+  parent: system.admin
+  weight: 50
+
+################################################################################
+# CONFIGURACIÓN DEL MÓDULO                                                     #
+################################################################################
+
+# Menú para todos los elementos de este módulo.
+custom_module.oscarbot_main.admin:
+  title: 'OscarBot: Main'
+  route_name: custom_module.oscarbot_main.admin
+  parent: custom_module.global.admin
+
+################################################################################
+# FORMULARIOS                                                                  #
+################################################################################
+
+# Formulario de configuración.
+oscarbot_main.settings:
+  title: Settings
+  description: 'Global settings for OscarBot: Main'
+  route_name: oscarbot_main.settings
+  parent: custom_module.oscarbot_main.admin

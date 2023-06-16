@@ -1,0 +1,105 @@
+<?php
+
+/**
+ * @file
+ * oscarbot_main.module.
+ */
+
+use Drupal\Core\Render\Markup;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+use Drupal\oscarbot_main\lib\general\MarkdownParser;
+use Drupal\oscarbot_main\lib\handlers\FormAlterHandler;
+
+/**
+ * Implements hook_help().
+ */
+function oscarbot_main_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+
+    case 'help.page.oscarbot_main':
+      /* Añado el contenido del archivo README.md a la ayuda del módulo */
+      $parser = new MarkdownParser();
+
+      $module_path = \Drupal::service('extension.path.resolver')
+        ->getPath('module', "oscarbot_main");
+
+      $readme_ruta = $module_path . "/README.md";
+      $contenido = '';
+      if (file_exists($readme_ruta)) {
+        $contenido = file_get_contents($readme_ruta);
+        $contenido = Markup::create($parser->text($contenido));
+
+        if ($contenido) {
+          $template_path = $module_path . "/templates/custom/help.html.twig";
+          $template = file_get_contents($template_path);
+          $build = [
+            'description' => [
+              '#type' => 'inline_template',
+              '#template' => $template,
+              '#context' => [
+                'readme' => $contenido,
+              ],
+            ],
+          ];
+          return $build;
+        }
+      }
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function oscarbot_main_page_attachments(array &$attachments) {
+  /* Añadir el CSS y JS a toda la web */
+  $attachments['#attached']['library'][] = 'oscarbot_main/global_libraries';
+}
+
+/**
+ * Implements hook_mail().
+ */
+function oscarbot_main_mail(string $key, array &$message, array $params) {
+  $config_site = \Drupal::config('system.site');
+
+  /* Cabeceras */
+  $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+  $message['from'] = $config_site->get('name') . '<' . $config_site->get('mail') . '>';
+
+  /* Copias del mensaje */
+  if (isset($params['Cc']) and !is_null($params['Cc'])) {
+    $message['headers']['Cc'] = $params['Cc'];
+  }
+  if (isset($params['Bcc']) and !is_null($params['Bcc'])) {
+    $message['headers']['Bcc'] = $params['Bcc'];
+  }
+
+  /* Datos comunes a todos los envíos */
+  $message['reply-to'] = $message['from'];
+  $message['subject'] = $params['subject'];
+  $message['body'][] = Markup::create($params['message']);
+
+  /* Compruebo si el mensaje tiene adjuntos */
+  if (isset($params['attachments'])) {
+    /* Solución para los adjuntos duplicados en Outlook. */
+    $message['params']['attachments'] = [];
+
+    foreach ($params['attachments'] as $attachment) {
+      $message['params']['attachments'][] = [
+        'filepath' => $attachment['filepath'],
+        'filename' => $attachment['filename'],
+        'filemime' => $attachment['filemime'],
+      ];
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function oscarbot_main_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  FormAlterHandler::addPlaceholderUserForm($form, $form_id);
+}

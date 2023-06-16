@@ -1,0 +1,60 @@
+# Spanish translation for OscarBot: Main
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OscarBot: Main (1.0.0)\n"
+"Last-Translator: Óscar Novás <hola@oscarnovas.com>\n"
+"Language-Team: OscarNovas.com <hola@oscarnovas.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+# #############################################################################
+# src/form
+# #############################################################################
+
+# config/SettingsForm.php
+msgid "General"
+msgstr "General"
+
+msgid "<p><h2>General Settings</h2></p>"
+msgstr "<p><h2>Configuración General</h2></p>"
+
+msgid "Info"
+msgstr "Información"
+
+msgid "Help"
+msgstr "Ayuda"
+
+# #############################################################################
+# src/Templates
+# #############################################################################
+
+# #############################################################################
+# /
+# #############################################################################
+
+# oscarbot_main.info.yml
+msgid "OscarBot: Main - Functionalities"
+msgstr "OscarBot: Main - Funcionalidades"
+
+# oscarbot_main.links.menu.yml
+msgid "OscarBot: Main - Settings"
+msgstr "OscarBot: Main - Configuración"
+
+msgid "Global settings for OscarBot: Main"
+msgstr "Configuración global para OscarBot: Main"
+
+# oscarbot_main.module
+
+# oscarbot_main.permissions.yml
+msgid "Config OscarBot: Main"
+msgstr "Configurar OscarBot: Main"
+
+msgid "Allow users to access OscarBot: Main Config."
+msgstr "Permitir a los usuarios acceder a la configuración de OscarBot: Main."
+
+# oscarbot_main.routing.yml
+msgid "OscarBot: Main - Settings"
+msgstr "OscarBot: Main - Configuración"

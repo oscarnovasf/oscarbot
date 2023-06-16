@@ -1,0 +1,8 @@
+################################################################################
+# CONFIGURACIÓN DEL MÓDULO                                                     #
+################################################################################
+
+# Configuración general
+config oscarbot_main:
+  title: 'Config OscarBot: Main'
+  description: 'Allow users to access OscarBot: Main Config.'

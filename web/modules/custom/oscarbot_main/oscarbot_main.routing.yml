@@ -1,0 +1,44 @@
+################################################################################
+# MENÚ GLOBAL PARA LOS MÓDULOS CUSTOM                                          #
+################################################################################
+
+# Menú de configuración para todas las herramientas.
+custom_module.global.admin:
+  path: '/admin/custom_modules'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Custom Modules'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    no_cache: 'TRUE'
+
+################################################################################
+# CONFIGURACIÓN DEL MÓDULO                                                     #
+################################################################################
+
+# Ruta para ver todas las herramientas de este módulo.
+custom_module.oscarbot_main.admin:
+  path: '/admin/custom_modules/oscarbot_main'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'OscarBot: Main'
+  options:
+    _admin_route: TRUE
+  requirements:
+    _permission: 'config oscarbot_main'
+
+################################################################################
+# FORMULARIOS                                                                  #
+################################################################################
+
+# Ruta para el formulario de configuración.
+oscarbot_main.settings:
+  path: '/admin/custom_modules/oscarbot_main/settings'
+  defaults:
+    _form: '\Drupal\oscarbot_main\Form\config\SettingsForm'
+    _title: 'Settings'
+  requirements:
+    _permission: 'config oscarbot_main'
+  options:
+    no_cache: 'TRUE'

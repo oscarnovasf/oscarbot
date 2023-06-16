@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the custom module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function oscarbot_main_uninstall($is_syncing) {
+  $config = \Drupal::configFactory()
+    ->getEditable('oscarbot_main.settings');
+
+  if (is_object($config)) {
+    $config->delete();
+  }
+}

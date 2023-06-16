@@ -64,6 +64,7 @@ module:
   mysql: 0
   node: 0
   options: 0
+  oscarbot_main: 0
   page_cache: 0
   path: 0
   path_alias: 0

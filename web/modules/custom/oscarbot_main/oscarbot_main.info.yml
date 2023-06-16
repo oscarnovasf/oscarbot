@@ -1,0 +1,28 @@
+# Datos del módulo
+name: 'OscarBot: Main'
+description: 'OscarBot: Main - Functionalities'
+project: 'oscarbot_main'
+
+# Datos de la versión
+package: custom
+type: module
+version: '1.0.0'
+
+# Tema
+base theme: false
+
+# Configuración
+configure: oscarbot_main.settings
+
+# Dependencias
+dependencies:
+  - node
+
+# Requisitos
+core_version_requirement: ^10
+requirements:
+  _permission: 'config oscarbot_main'
+
+# Traducciones
+'interface translation project': oscarbot_main
+'interface translation server pattern': 'modules/custom/oscarbot_main/config/translations/oscarbot_main.%language.po'
