@@ -1,5 +1,6 @@
 body {
   background-color: var(--color-bg-primary);
+  background: linear-gradient(90deg, #C7C5F4, #776BCC);
 }
 
 .layout-container {

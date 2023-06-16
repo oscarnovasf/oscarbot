@@ -1,0 +1,115 @@
+.user-container {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  min-height:      100vh;
+}
+
+.shwpd {
+  filter: invert(88%) sepia(89%) saturate(4%) hue-rotate(183deg) brightness(109%) contrast(97%);
+}
+
+.screen_user {
+  background: linear-gradient(90deg, var(--color-bg-primary), var(--color-bg-secondary));
+  position:   relative;
+  height:     600px;
+  width:      360px;
+  box-shadow: 0px 0px 24px #5C5696;
+}
+
+.screen_user__content {
+  z-index:  1;
+  position: relative;
+  height:   100%;
+}
+
+.screen_user__content .block-system-branding-block {
+  max-width:  50%;
+  overflow:   hidden;
+  text-align: center;
+  display:    block;
+  margin:     50px 0 15px 15px;
+}
+
+.screen_user__content .block-system-branding-block img {
+  display: block;
+  width:   100%;
+}
+
+.screen_user__content .block-system-branding-block a:nth-child(2) {
+  text-decoration: none;
+  font-size:       30px;
+}
+
+.screen_user__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  -webkit-clip-path: inset(0 0 0 0);
+  clip-path:         inset(0 0 0 0);
+}
+
+.screen_user__background__shape {
+  transform: rotate(45deg);
+  position:  absolute;
+}
+
+.screen_user__background__shape1 {
+  height: 520px;
+  width: 520px;
+  background: var(--color-white);
+  top: -50px;
+  right: 120px;
+  border-radius: 0 72px 0 0;
+}
+
+.screen_user__background__shape2 {
+  height: 220px;
+  width: 220px;
+  background: #6C63AC;
+  top: -172px;
+  right: 0;
+  border-radius: 32px;
+}
+
+.screen_user__background__shape3 {
+  height: 540px;
+  width: 190px;
+  background: linear-gradient(270deg, var(--color-bg-primary), #6A679E);
+  top: -24px;
+  right: 0;
+  border-radius: 32px;
+}
+
+.screen_user__background__shape4 {
+  height: 400px;
+  width: 200px;
+  background: #7E7BB9;
+  top: 420px;
+  right: 50px;
+  border-radius: 60px;
+}
+
+.screen_user__links {
+  position: absolute;
+  height: 140px;
+  width: 160px;
+  text-align: center;
+  bottom: 0px;
+  right: 0px;
+  color: var(--color-white);
+}
+
+.screen_user__links a {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+.form-user-pass p {
+  padding:    15px 15px 15px 0;
+  margin:     15px;
+  background: var(--color-white-opacity);
+}

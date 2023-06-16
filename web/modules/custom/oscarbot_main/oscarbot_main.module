@@ -101,5 +101,5 @@ function oscarbot_main_mail(string $key, array &$message, array $params) {
  * Implements hook_form_alter().
  */
 function oscarbot_main_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  FormAlterHandler::addPlaceholderUserForm($form, $form_id);
+  $form = FormAlterHandler::addPlaceholderUserForm($form, $form_id);
 }

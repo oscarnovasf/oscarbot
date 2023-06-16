@@ -28,6 +28,7 @@ class FormAlterHandler {
     $forms_users_add_placeholder = [
       'user_login_form',
       'user_register_form',
+      'user_pass',
     ];
 
     if (TRUE === in_array($form_id, $forms_users_add_placeholder)) {
@@ -37,7 +38,7 @@ class FormAlterHandler {
       if (isset($form['pass'])) {
         $form['pass']['#attributes']['placeholder'] = $form['pass']['#title'];
       }
-      if (isset($form['mail'])) {
+      if (isset($form['mail']) && isset($form['mail']['#title'])) {
         $form['mail']['#attributes']['placeholder'] = $form['mail']['#title'];
       }
     }

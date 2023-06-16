@@ -3,12 +3,15 @@
   --max-width: 1200px;
 
   /* Colores (generales) */
-  --color-white:   #fff;
-  --color-sunglow: #ffd23f;
+  --color-white:         #fff;
+  --color-white-opacity: rgba(255, 255, 255, 0.5);
+  --color-black:         #16304d;
+  --color-sunglow:       #ffd23f;
 
-  --color-bg-primary: #16304d;
+  --color-bg-primary: #5D54A4;
+  --color-bg-secondary: #7C78B8;
 
-  --primary:   #42a877;
+  --primary:   #5E5DFF;
   --secondary: #ffd23f;
 
   /* Espaciado */
@@ -45,3 +48,5 @@
   --local-tasks-border-color:    #333;
   --local-tasks-font-family:     Verdana, Geneva, sans-serif
 }
+
+:root.light-theme {}

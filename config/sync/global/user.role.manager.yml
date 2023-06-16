@@ -9,19 +9,13 @@ dependencies:
     - filter
     - node
     - system
-    - taxonomy
-    - toolbar
 id: manager
 label: Manager
 weight: 4
 is_admin: null
 permissions:
   - 'access site in maintenance mode'
-  - 'access site reports'
-  - 'access taxonomy overview'
-  - 'access toolbar'
   - 'access user profiles'
-  - 'administer users'
   - 'create page content'
   - 'delete all revisions'
   - 'edit any page content'
@@ -30,4 +24,3 @@ permissions:
   - 'view all revisions'
   - 'view own unpublished content'
   - 'view the administration theme'
-  - 'view user email addresses'

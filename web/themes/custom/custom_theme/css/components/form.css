@@ -1,7 +1,7 @@
 .form-item {
   position:    relative;
   margin:      15px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .form-item .form-item__label {
@@ -17,16 +17,18 @@
   transition:       transform 120ms ease-in;
   font-weight:      bold;
   line-height:      1.2;
+  color:            var(--primary);
 }
 
 .form-item .form-text {
-  box-sizing: border-box;
-  display: block;
-  width: 100%;
-  border: 3px solid currentColor;
-  padding: calc(var(--space-xs) * 1.5) var(--space-xs);
-  color: currentColor;
-  background: transparent;
+  box-sizing:    border-box;
+  display:       block;
+  width:         100%;
+  border:        none;
+  border-bottom: 3px solid var(--primary);
+  padding:       calc(var(--space-xs) * 1.5) var(--space-xs);
+  color:         var(--color-black);
+  background:    transparent;
   border-radius: var(--size-radius);
 }
 
@@ -42,7 +44,30 @@
 .form-item .form-text:focus + button + .form-item__label,
 .form-item .form-text:not(:placeholder-shown) + .form-item__label,
 .form-item .form-text:not(:placeholder-shown) + button + .form-item__label {
-  transform: translate(.25rem, -65%) scale(.8);
-  color: var(--primary);
-  background: var(--color-bg-primary);
+  transform:  translate(.25rem, -65%) scale(.8);
+  color:      var(--primary);
+  /* background: var(--color-bg-primary); */
+}
+
+.form-submit {
+  background: #fff;
+  font-size: 14px;
+  margin: 30px;
+  width: calc(100% - 60px);
+  padding: 16px 20px;
+  border-radius: 26px;
+  border: 1px solid #D4D3E8;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #4C489D;
+  box-shadow: 0px 2px 2px #5C5696;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.form-submit:active,
+.form-submit:focus,
+.form-submit:hover {
+  border-color: #6A679E;
+  outline: none;
 }
