@@ -1,0 +1,20 @@
+uuid: 3f1f53a7-f242-425a-9ef9-654744a9eac7
+langcode: es
+status: true
+dependencies:
+  theme:
+    - custom_theme
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: custom_theme_page_title
+theme: custom_theme
+region: content
+weight: -3
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Título de la página'
+  label_display: '0'
+  provider: core
+visibility: {  }

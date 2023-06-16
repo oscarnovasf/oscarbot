@@ -1,0 +1,59 @@
+################################################################################
+# LIBRERÍAS                                                                    #
+################################################################################
+
+# Librería general del tema.
+global:
+  css:
+
+    # Restablecimiento/normalización de CSS y estilos de elementos HTML.
+    # (weight: -200)
+    base:
+      # css/base/elements.css: {}
+      css/base/fonts.css: { minified: false }
+      css/base/normalize.css: { minified: false }
+      css/base/variables.css: { minified: false }
+
+    # Disposición macro de una página web, incluidos los sistemas de cuadrícula.
+    # (weight: -100)
+    layout:
+      # css/layout/menu/account.css: {}
+      # css/layout/menu/main.css: { }
+      # css/layout/region/region-content.css: {}
+      # css/layout/region/region-header.css: {}
+      # css/layout/region/region-navigation.css: {}
+      css/layout/layout.css: {}
+      # css/layout/node.css: {}
+      # css/layout/site-branding.css: {}
+      # css/layout/view-content.css: {}
+
+    # Elementos de interfaz de usuario discretos y re-utilizables.
+    # (weight: 0)
+    component:
+      # css/components/block.css: {}
+      # css/components/breadcrumb.css: {}
+      # css/components/field.css: {}
+      # css/components/field/field--name-field-image.css: {}
+      css/components/form.css: { minified: false }
+      # css/components/header.css: {}
+      css/components/messages.css: { minified: false }
+      css/components/local-tasks.css: { minified: false }
+      # css/components/headings.css: {}
+      # css/components/image.css: {}
+      # css/components/sidebar.css: {}
+      # css/components/table.css: {}
+      # css/components/tabs.css: {}
+      # css/components/link.css: {}
+      # css/components/links.css: {}
+      # css/components/pager.css: {}
+      # css/components/buttons.css: {}
+      # css/components/footer.css: {}
+
+    # Estilo puramente visual ("look-and-feel") para un componente.
+    # (weight: 200)
+    theme:
+      # css/theme/menu.css: {}
+      # css/theme/region-navigation.css: {}
+      # css/theme/site-branding.css: {}
+      # css/theme/views-row.css: {}
+      css/theme/print.css: { media: print, minified: false }

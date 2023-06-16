@@ -1,0 +1,35 @@
+uuid: 860e111d-c41a-4d03-bca5-7b4c759ff9cd
+langcode: es
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+    - user
+  theme:
+    - custom_theme
+_core:
+  default_config_hash: KWAiziL39uEzmOJEql_wbUP2RtqGceL3WM2CfxhMelE
+id: custom_theme_main_menu
+theme: custom_theme
+region: navigation
+weight: -4
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Navegación principal'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 2
+  expand_all_items: true
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

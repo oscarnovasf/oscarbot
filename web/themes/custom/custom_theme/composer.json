@@ -1,0 +1,11 @@
+{
+  "name": "drupal/custom_theme",
+  "description": "Tema principal que implementa el estilo BEM.",
+  "type": "drupal-custom-theme",
+  "license": "GPL-3.0-or-later",
+  "version": "1.0.0",
+
+  "require": {
+    "php": ">=8.1"
+  }
+}

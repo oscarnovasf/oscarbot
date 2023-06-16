@@ -1,0 +1,112 @@
+/*
+ * Style overwrites for the local tasks block.
+ */
+.block-local-tasks-block {
+  position:   fixed;
+  top:        50%;
+  transform:  translateY(-50%);
+  z-index:    9999;
+  width:      164px;
+  right:      -124px;
+  transition: all 0.25s ease;
+}
+
+.block-local-tasks-block .contextual {
+  bottom: -20px;
+  top:    auto;
+}
+
+.block-local-tasks-block nav.local-tasks {
+  margin: 0;
+}
+
+.block-local-tasks-block nav.local-tasks ul {
+  margin:     0;
+  padding:    0;
+  text-align: right;
+  position:   relative;
+}
+
+.block-local-tasks-block nav.local-tasks ul li {
+  display:       block;
+  width:         auto;
+  max-width:     160px;
+  background:    var(--local-tasks-bg-color);
+  padding:       5px 10px;
+  position:      relative;
+  transition:    all 0.25s ease;
+  border:        0;
+  border-bottom: 1px solid var(--local-tasks-border-color);
+  opacity:       0.8;
+  left:          0;
+  margin:        0;
+}
+
+.block-local-tasks-block nav.local-tasks ul li a {
+  padding:             2px;
+  color:               var(--color-white);
+  width:               auto;
+  border:              0;
+  background-color:    transparent;
+  background-size:     24px 24px;
+  background-repeat:   no-repeat;
+  background-position: left 50%;
+  font-family:         var(--local-tasks-font-family);
+  font-size:           var(--font-size-s);
+  line-height:         var(--space-l);
+  display:             block;
+}
+
+.block-local-tasks-block nav.local-tasks ul li a.clone {
+  background-image: url('../../media/img/local_task/icon-clone.svg');
+}
+
+.block-local-tasks-block nav.local-tasks ul li a.edit {
+  background-image: url('../../media/img/local_task/icon-edit.svg');
+}
+
+.block-local-tasks-block nav.local-tasks ul li a.delete {
+  background-image: url('../../media/img/local_task/icon-delete.svg');
+}
+
+.block-local-tasks-block nav.local-tasks ul li a.devel {
+  background-image: url('../../media/img/local_task/icon-devel.svg') !important;
+}
+
+.block-local-tasks-block nav.local-tasks ul li a.managedisplay {
+  background-image: url('../../media/img/local_task/icon-managedisplay.svg');
+}
+
+.block-local-tasks-block nav.local-tasks ul li a.newdraft {
+  background-image: url('../../media/img/local_task/icon-newdraft.svg');
+}
+
+.block-local-tasks-block nav.local-tasks ul li a.revisions {
+  background-image: url('../../media/img/local_task/icon-revisions.svg');
+}
+
+.block-local-tasks-block nav.local-tasks ul li a.shortcuts {
+  background-image: url('../../media/img/local_task/icon-shortcuts.svg');
+}
+
+.block-local-tasks-block nav.local-tasks ul li a.translate {
+  background-image: url('../../media/img/local_task/icon-translate.svg');
+}
+
+.block-local-tasks-block nav.local-tasks ul li a.view {
+  background-image: url('../../media/img/local_task/icon-view.svg');
+}
+
+.block-local-tasks-block nav.local-tasks ul li.is-active {
+  background-color: var(--local-tasks-bg-color-active);
+}
+
+.block-local-tasks-block nav.local-tasks ul li.is-active a {
+  background-color: transparent;
+}
+
+.block-local-tasks-block nav.local-tasks ul li:hover {
+  left:             -120px;
+  opacity:          1;
+  background-color: var(--local-tasks-bg-color-hover);
+}

@@ -1,0 +1,251 @@
+<?php
+
+/**
+ * @file
+ * Conjunto de funciones/hooks que dan soporte al tema.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Render\Element;
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function custom_theme_element_info_alter(array &$types) {
+  foreach ($types as $name => $type) {
+    if (isset($type['#theme_wrappers']) && in_array('form_element', $type['#theme_wrappers'])) {
+      $types[$name]['#process'][] = '_custom_theme_process_form_element';
+    }
+    if (isset($type['#theme_wrappers']) && in_array('details', $type['#theme_wrappers'])) {
+      $types[$name]['#process'][] = '_custom_theme_process_form_element';
+    }
+  }
+}
+
+/**
+ * Funcionalidad de procesamiento para elementos.
+ *
+ * @see custom_theme_element_info_alter()
+ */
+function _custom_theme_process_form_element(array &$element,
+                                            FormStateInterface $form_state,
+                                            &$complete_form) {
+  if (!empty($complete_form['#form_id'])) {
+    $element['#custom_theme_form_id'] = $complete_form['#form_id'];
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_theme_suggestions_taxonomy_term_alter().
+ */
+function custom_theme_theme_suggestions_taxonomy_term_alter(array &$suggestions, array $variables) {
+  /** @var \Drupal\taxonomy\TermInterface $term */
+  $term = $variables['elements']['#taxonomy_term'];
+
+  // Insert before taxonomy-term--{bundle}:
+  $bundle_suggestion_pos = array_search('taxonomy_term__' . $term->bundle(), $suggestions);
+  array_splice($suggestions, $bundle_suggestion_pos, 0, [
+    'taxonomy_term__' . $variables['elements']['#view_mode'],
+  ]);
+
+  // Insert before taxonomy-term--{id}:
+  $id_suggestion_pos = array_search('taxonomy_term__' . $term->id(), $suggestions);
+  array_splice($suggestions, $id_suggestion_pos, 0, [
+    'taxonomy_term__' . $term->bundle() . '__' . $variables['elements']['#view_mode'],
+  ]);
+}
+
+/**
+ * Implements hook_theme_suggestions_user_alter().
+ */
+function custom_theme_theme_suggestions_user_alter(&$suggestions, $variables) {
+  // Define the view mode.
+  $mode = $variables['elements']['#view_mode'];
+
+  // Create a theme hook suggestion which has the view mode name in it.
+  $suggestions[] = 'user__' . $mode;
+
+  // Get current user.
+  $current_user = $variables['elements']['#user'];
+
+  // Get current user's roles.
+  $roles = $current_user->getRoles();
+
+  // Add suggestion per role.
+  foreach ($roles as $role) {
+    $suggestions[] = 'user__' . $mode . '__' . $role;
+  }
+}
+
+/**
+ * Implements hook_preprocess_status_messages().
+ */
+function custom_theme_preprocess_status_messages(&$variables) {
+  $variables['title_ids'] = [];
+  foreach ($variables['message_list'] as $message_type => $messages) {
+    $variables['title_ids'][$message_type] = Html::getUniqueId("message-$message_type-title");
+  }
+}
+
+/**
+ * Implements hook_preprocess_menu_local_tasks().
+ */
+function custom_theme_preprocess_menu_local_tasks(&$variables) {
+  foreach (Element::children($variables['primary']) as $key) {
+    $variables['primary'][$key]['#level'] = 'primary';
+    $variables['primary'][$key]['#link']['url']->setOption('attributes', [
+      'class' => [
+        _custom_theme_get_link_class($key),
+      ],
+    ]);
+  }
+
+  foreach (Element::children($variables['secondary']) as $key) {
+    $variables['secondary'][$key]['#level'] = 'secondary';
+    $variables['secondary'][$key]['#link']['url']->setOption('attributes', [
+      'class' => [
+        _custom_theme_get_link_class($key),
+      ],
+    ]);
+  }
+}
+
+/**
+ * Obtiene el nombre de la clase para asignar al botón de "local_task".
+ *
+ * @param string $key
+ *   Nombre de la ruta a partir de la que obtener el nombre de clase a asignar.
+ *
+ * @return string
+ *   Nombre de la clase.
+ */
+function _custom_theme_get_link_class(string $key): string {
+  if (preg_match('/\.canonical$/', $key)) {
+    $link_name = 'view';
+  }
+  elseif (preg_match('/\.edit_form$/', $key)) {
+    $link_name = 'edit';
+  }
+  elseif (preg_match('/\.delete_form$/', $key)) {
+    $link_name = 'delete';
+  }
+  elseif (preg_match('/\.version_history$/', $key)) {
+    $link_name = 'revisions';
+  }
+  elseif (preg_match('/\.devel_tab$/', $key)) {
+    $link_name = 'devel';
+  }
+  elseif (preg_match('/\.content_translation_overview$/', $key)) {
+    $link_name = 'translate';
+  }
+  elseif (preg_match('/\.clone_form$/', $key)) {
+    $link_name = 'clone';
+  }
+  elseif ($key = 'shortcut.set_switch') {
+    $link_name = 'shortcuts';
+  }
+
+  return $link_name ?? '';
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function custom_theme_preprocess_html(&$variables) {
+  foreach ($variables['user']->getRoles() as $role) {
+    $variables['attributes']['class'][] = 'role-' . $role;
+  }
+}
+
+/**
+ * Implements hook_preprocess_form_element().
+ */
+function custom_theme_preprocess_form_element(array &$variables) {
+  $element = &$variables['element'];
+  $variables['form_id'] = $element['#custom_theme_form_id'] ?? '';
+
+  $elements_to_move_label = [
+    'textfield',
+    'password',
+  ];
+
+  if (in_array($variables['element']['#type'], $elements_to_move_label)) {
+    $variables['label_display'] = 'after';
+  }
+}
+
+/**
+ * Implements hook_preprocess_details().
+ */
+function custom_theme_preprocess_details(array &$variables) {
+  $element = &$variables['element'];
+
+  $variables['form_id'] = $element['#custom_theme_form_id'] ?? '';
+  $variables['name'] = isset($element['#id']) ? preg_replace(['/^edit\-/', '/\-\d+$/'], '', $element['#id']) : '';
+}
+
+/**
+ * Implements hook_preprocess_form().
+ */
+function custom_theme_preprocess_form(array &$variables) {
+  $element = &$variables['element'];
+
+  $variables['form_id'] = $element['#form_id'];
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function custom_theme_preprocess_field(array &$variables) {
+  $element = $variables['element'];
+
+  $variables['bundle'] = $element['#bundle'];
+  $variables['view_mode'] = $element['#view_mode'];
+
+  // @todo Remove when possible.
+  // When rendered inside a view or field, default is used instead of full.
+  if ($variables['entity_type'] == 'block_content' && $variables['view_mode'] == 'default') {
+    $variables['view_mode'] = 'full';
+  }
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function custom_theme_preprocess_block(array &$variables) {
+  $elements = $variables['elements'];
+  $variables['id'] = $elements['#id'];
+  $variables['region'] = $elements['#region'] ?? NULL;
+
+  if ($variables['base_plugin_id'] == 'block_content') {
+    /** @var \Drupal\block_content\Entity\BlockContent $block_content */
+    $block_content = $variables['content']['#block_content'];
+    $variables['block_content_bundle'] = $block_content->bundle();
+  }
+
+  if ($variables['base_plugin_id'] == 'system_menu_block') {
+    if ($variables['content_attributes'] instanceof Attribute === FALSE) {
+      $variables['content_attributes'] = new Attribute($variables['content_attributes']);
+    }
+
+    $variables['content']['#attributes'] = $variables['content_attributes'];
+  }
+}
+
+/**
+ * Implements hook_preprocess_item_list().
+ */
+function custom_theme_preprocess_item_list(array &$variables) {
+  $hook = explode('__', $variables['theme_hook_original']);
+  $variables['custom_theme_block'] = Html::cleanCssIdentifier(implode('-', $hook));
+}
+
+/**
+ * Implements hook_preprocess_user().
+ */
+function custom_theme_preprocess_user(array &$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+}

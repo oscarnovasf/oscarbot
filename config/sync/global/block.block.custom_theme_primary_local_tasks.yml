@@ -1,0 +1,32 @@
+uuid: 14da53c5-eb82-4efb-b58a-9b6414c52f91
+langcode: es
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - custom_theme
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: custom_theme_primary_local_tasks
+theme: custom_theme
+region: navigation
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Solapas principales'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+      manager: manager

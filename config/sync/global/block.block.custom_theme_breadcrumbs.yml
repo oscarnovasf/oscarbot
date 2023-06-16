@@ -1,0 +1,30 @@
+uuid: 44b10f0a-6b75-467b-9be7-c7eb2e6136a9
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+    - user
+  theme:
+    - custom_theme
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: custom_theme_breadcrumbs
+theme: custom_theme
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: 'Enlaces de ayuda a la navegación'
+  label_display: '0'
+  provider: system
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

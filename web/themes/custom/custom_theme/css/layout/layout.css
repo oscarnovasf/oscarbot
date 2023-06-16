@@ -1,0 +1,9 @@
+body {
+  background-color: var(--color-bg-primary);
+}
+
+.layout-container {
+  max-width: var(--max-width);
+  margin:    0 auto;
+  display:   block;
+}

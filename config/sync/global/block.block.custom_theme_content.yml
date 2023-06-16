@@ -1,0 +1,22 @@
+uuid: 48fd63f6-ba54-4573-8946-1d3f709a4bfd
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - custom_theme
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: custom_theme_content
+theme: custom_theme
+region: content
+weight: -2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Contenido principal de la página'
+  label_display: '0'
+  provider: system
+visibility: {  }

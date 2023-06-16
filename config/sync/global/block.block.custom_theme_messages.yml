@@ -1,0 +1,22 @@
+uuid: 28b0691f-5abd-4dba-8183-91da7ff59df0
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - custom_theme
+_core:
+  default_config_hash: BZ5tpW7H8X4PVGRm3MImTIHd2tN0eF7zOtp4SpRYUA0
+id: custom_theme_messages
+theme: custom_theme
+region: content
+weight: -4
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Mensajes de estado'
+  label_display: '0'
+  provider: system
+visibility: {  }

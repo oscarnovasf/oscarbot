@@ -1,0 +1,26 @@
+name: Custom Theme
+description: Tema principal que implementa el estilo BEM.
+
+type: theme
+base theme: false
+version: '1.0.0'
+
+core_version_requirement: ^10
+
+libraries:
+  - core/drupal.message
+  - core/normalize
+  - custom_theme/global
+
+regions:
+  header: 'Header'
+  navigation: 'Navigation'
+  # secondary_menu: 'Secondary menu'
+  # page_top: 'Page top'
+  # page_bottom: 'Page bottom'
+  # featured: 'Featured'
+  breadcrumb: 'Breadcrumb'
+  content: 'Content'
+  # sidebar_first: 'Sidebar first'
+  # sidebar_second: 'Sidebar second'
+  footer: 'Footer'
