@@ -1,6 +1,5 @@
 body {
-  background-color: var(--color-bg-primary);
-  background: linear-gradient(90deg, #C7C5F4, #776BCC);
+  background: linear-gradient(90deg, var(--color-bg-primary), var(--color-bg-secondary));
 }
 
 .layout-container {

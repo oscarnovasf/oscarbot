@@ -1,44 +1,48 @@
 :root {
   /* General */
-  --max-width: 1200px;
+  --max-width: 75rem /* 1200px -> 75rem */;
 
   /* Colores (generales) */
   --color-white:         #fff;
   --color-white-opacity: rgba(255, 255, 255, 0.5);
   --color-black:         #16304d;
-  --color-sunglow:       #ffd23f;
 
-  --color-bg-primary: #5D54A4;
-  --color-bg-secondary: #7C78B8;
+  --color-bg-primary: #C7C5F4;
+  --color-bg-secondary: #776BCC;
+
+  --color-shadow-primary:    #5C5696;
+  --color-shadow-secondary:  #6C63AC;
+  --color-shadow-tertiary: #7E7BB9;
 
   --primary:   #5E5DFF;
-  --secondary: #ffd23f;
 
   /* Espaciado */
-  --space-xl: 3rem;
-  --space-l:  1.5rem;
-  --space-m:  1rem;
-  --space-s:  0.75rem;
-  --space-xs: 0.5rem;
+  --space-xl: 3rem   /* 48px -> 3rem */;
+  --space-l:  1.5rem /* 24px -> 1.5rem */;
+  --space-m:  1rem   /* 16px -> 1rem */;
+  --space-s:  .75rem /* 12px -> .75rem */;
+  --space-xs: .5rem  /* 8px -> .5rem */;
 
   /* Fuentes - Tipografía (generales) */
-  --font-size-base: 1rem;
-  --font-size-s:    0.75rem;
+  --font-size-base: 1rem   /* 16px -> 1rem */;
+  --font-size-s:    .75rem /* 12px -> .75rem */;
 
   /* Bordes */
-  --border-xs: 4px;
+  --border-xs: .25rem /* 4px -> .25rem */;
+  --border-color-gray:       #D4D3E8;
+  --border-color-gray-hover: #6A679E;
 
   /* Mensajes */
   --messages-bg-color:           #353641;
   --messages-fg-color:           var(--color-white);
-  --messages-border-radius:      2px;
-  --messages-border-width:       0.3125rem;
+  --messages-border-radius:      .125rem  /* 2px -> .125rem */;
+  --messages-border-width:       .3125rem /* 5px -> .3125rem */;
   --messages--status-color:      #42a877;
   --messages--warning-color:     #e0ac00;
   --messages--error-color:       #e34f4f;
-  --messages__link-color:        var(--color-sunglow);
+  --messages__link-color:        #ffd23f;
   --messages__link--hover-color: var(--color-white);
-  --messages__icon-size:         1rem;
+  --messages__icon-size:         1rem /* 16px -> 1rem */;
   --messages__text-margin:       calc(var(--messages__icon-size) + var(--space-l));
 
   /* Local Tasks */

@@ -8,14 +8,17 @@ dependencies:
   module:
     - filter
     - node
+    - oscarbot_main
     - system
 id: manager
 label: Manager
 weight: 4
 is_admin: null
 permissions:
+  - 'access content'
   - 'access site in maintenance mode'
   - 'access user profiles'
+  - 'config oscarbot_main'
   - 'create page content'
   - 'delete all revisions'
   - 'edit any page content'
