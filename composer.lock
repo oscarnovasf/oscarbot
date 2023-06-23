@@ -63,6 +63,21 @@
             "time": "2022-01-18T09:12:03+00:00"
         },
         {
+            "name": "bower-asset/swagger-ui",
+            "version": "v4.18.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swagger-api/swagger-ui.git",
+                "reference": "d4adabdb846b6b27fb078ed6947be258986b0b9a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/d4adabdb846b6b27fb078ed6947be258986b0b9a",
+                "reference": "d4adabdb846b6b27fb078ed6947be258986b0b9a"
+            },
+            "type": "bower-asset"
+        },
+        {
             "name": "chi-teck/drupal-code-generator",
             "version": "2.6.2",
             "source": {
@@ -1970,16 +1985,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "10.1.0-rc1",
+            "version": "10.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "2707e6b34b7698e35668a0c503d8eb0a7bd3363d"
+                "reference": "b83ccdf5ac7b00b033c245725be64239fd61a4d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/2707e6b34b7698e35668a0c503d8eb0a7bd3363d",
-                "reference": "2707e6b34b7698e35668a0c503d8eb0a7bd3363d",
+                "url": "https://api.github.com/repos/drupal/core/zipball/b83ccdf5ac7b00b033c245725be64239fd61a4d9",
+                "reference": "b83ccdf5ac7b00b033c245725be64239fd61a4d9",
                 "shasum": ""
             },
             "require": {
@@ -2124,13 +2139,13 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/10.1.0-rc1"
+                "source": "https://github.com/drupal/core/tree/10.1.0"
             },
-            "time": "2023-06-08T17:04:03+00:00"
+            "time": "2023-06-22T08:41:06+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "10.1.0-rc1",
+            "version": "10.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2174,22 +2189,22 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.1.0-rc1"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.1.0"
             },
             "time": "2023-04-30T16:15:32+00:00"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "10.1.0-rc1",
+            "version": "10.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "eca536183e1c0760d0de2107c8b5050980e5dc3e"
+                "reference": "38f93af015f974ff222a120fc32bd8b1bddef1ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/eca536183e1c0760d0de2107c8b5050980e5dc3e",
-                "reference": "eca536183e1c0760d0de2107c8b5050980e5dc3e",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/38f93af015f974ff222a120fc32bd8b1bddef1ac",
+                "reference": "38f93af015f974ff222a120fc32bd8b1bddef1ac",
                 "shasum": ""
             },
             "require": {
@@ -2198,7 +2213,7 @@
                 "doctrine/annotations": "~1.14.3",
                 "doctrine/deprecations": "~v1.1.1",
                 "doctrine/lexer": "~2.1.0",
-                "drupal/core": "10.1.0-rc1",
+                "drupal/core": "10.1.0",
                 "egulias/email-validator": "~4.0.1",
                 "guzzlehttp/guzzle": "~7.7.0",
                 "guzzlehttp/promises": "~2.0.0",
@@ -2256,9 +2271,9 @@
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/10.1.0-rc1"
+                "source": "https://github.com/drupal/core-recommended/tree/10.1.0"
             },
-            "time": "2023-06-08T17:04:03+00:00"
+            "time": "2023-06-22T08:41:06+00:00"
         },
         {
             "name": "drupal/csv_serialization",
@@ -10566,6 +10581,84 @@
                 "source": "https://github.com/wikimedia/composer-merge-plugin/tree/v2.1.0"
             },
             "time": "2023-04-15T19:07:00+00:00"
+        },
+        {
+            "name": "zircote/swagger-php",
+            "version": "4.7.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zircote/swagger-php.git",
+                "reference": "6d2f0fcc46bf9043877de8656a9ea95331155522"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/6d2f0fcc46bf9043877de8656a9ea95331155522",
+                "reference": "6d2f0fcc46bf9043877de8656a9ea95331155522",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": "^1.7 || ^2.0",
+                "ext-json": "*",
+                "php": ">=7.2",
+                "psr/log": "^1.1 || ^2.0 || ^3.0",
+                "symfony/deprecation-contracts": "^2 || ^3",
+                "symfony/finder": ">=2.2",
+                "symfony/yaml": ">=3.3"
+            },
+            "require-dev": {
+                "composer/package-versions-deprecated": "^1.11",
+                "friendsofphp/php-cs-fixer": "^2.17 || ^3.0",
+                "phpstan/phpstan": "^1.6",
+                "phpunit/phpunit": ">=8",
+                "vimeo/psalm": "^4.23"
+            },
+            "bin": [
+                "bin/openapi"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OpenApi\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Robert Allen",
+                    "email": "zircote@gmail.com"
+                },
+                {
+                    "name": "Bob Fanger",
+                    "email": "bfanger@gmail.com",
+                    "homepage": "https://bfanger.nl"
+                },
+                {
+                    "name": "Martin Rademacher",
+                    "email": "mano@radebatz.net",
+                    "homepage": "https://radebatz.net"
+                }
+            ],
+            "description": "swagger-php - Generate interactive documentation for your RESTful API using phpdoc annotations",
+            "homepage": "https://github.com/zircote/swagger-php/",
+            "keywords": [
+                "api",
+                "json",
+                "rest",
+                "service discovery"
+            ],
+            "support": {
+                "issues": "https://github.com/zircote/swagger-php/issues",
+                "source": "https://github.com/zircote/swagger-php/tree/4.7.10"
+            },
+            "time": "2023-04-28T00:56:39+00:00"
         }
     ],
     "packages-dev": [
@@ -11922,7 +12015,7 @@
         },
         {
             "name": "drupal/core-dev",
-            "version": "10.1.0-rc1",
+            "version": "10.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-dev.git",
@@ -11970,7 +12063,7 @@
             ],
             "description": "require-dev dependencies from drupal/drupal; use in addition to drupal/core-recommended to run tests from drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-dev/tree/10.1.0-rc1"
+                "source": "https://github.com/drupal/core-dev/tree/10.1.0"
             },
             "time": "2023-05-25T11:39:24+00:00"
         },
@@ -13774,16 +13867,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.19",
+            "version": "1.10.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "af5a296ff02610c1bfb4ddfac9fd4a08657b9046"
+                "reference": "b2a30186be2e4d97dce754ae4e65eb0ec2f04eb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/af5a296ff02610c1bfb4ddfac9fd4a08657b9046",
-                "reference": "af5a296ff02610c1bfb4ddfac9fd4a08657b9046",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b2a30186be2e4d97dce754ae4e65eb0ec2f04eb5",
+                "reference": "b2a30186be2e4d97dce754ae4e65eb0ec2f04eb5",
                 "shasum": ""
             },
             "require": {
@@ -13832,7 +13925,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-06-14T15:26:58+00:00"
+            "time": "2023-06-21T20:07:58+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",

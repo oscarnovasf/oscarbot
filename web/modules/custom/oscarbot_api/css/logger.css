@@ -1,0 +1,22 @@
+/**
+ * @file
+ * Admin styles for the Custom Logging feature.
+ */
+.admin-custom-log .icon,
+.admin-custom-log .custom-log-warning .icon,
+.admin-custom-log .custom-log-error .icon,
+.admin-custom-log .custom-log-critical .icon,
+.admin-custom-log .custom-log-alert .icon,
+.admin-custom-log .custom-log-emergency .icon {
+  width: 16px;
+  background: no-repeat center;
+}
+.admin-custom-log .custom-log-warning .icon {
+  background-image: url(../images/icons/warning.svg);
+}
+.admin-custom-log .custom-log-error .icon,
+.admin-custom-log .custom-log-critical .icon,
+.admin-custom-log .custom-log-alert .icon,
+.admin-custom-log .custom-log-emergency .icon {
+  background-image: url(../images/icons/error.svg);
+}

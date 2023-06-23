@@ -1,0 +1,137 @@
+################################################################################
+# MENÚ GLOBAL PARA LOS MÓDULOS CUSTOM                                          #
+################################################################################
+
+# Menú de configuración para todas las herramientas.
+custom_module.global.admin:
+  path: '/admin/custom_modules'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Custom Modules'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    no_cache: 'TRUE'
+
+################################################################################
+# CONFIGURACIÓN DEL MÓDULO                                                     #
+################################################################################
+
+# Ruta para ver todas las herramientas de este módulo.
+custom_module.oscarbot_api.admin:
+  path: '/admin/custom_modules/oscarbot_api'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'OscarBot: API'
+  options:
+    _admin_route: TRUE
+  requirements:
+    _permission: 'config oscarbot_api module'
+
+################################################################################
+# FORMULARIOS                                                                  #
+################################################################################
+
+# Ruta para el formulario de configuración.
+custom_module.oscarbot_api.settings:
+  path: '/admin/custom_modules/oscarbot_api/settings'
+  defaults:
+    _form: '\Drupal\oscarbot_api\Form\config\SettingsForm'
+    _title: 'Settings'
+  requirements:
+    _permission: 'config oscarbot_api module'
+  options:
+    no_cache: 'TRUE'
+
+# Formulario de confirmación de borrado de logs.
+custom_module.oscarbot_api.reports.delete:
+  path: '/admin/custom_modules/oscarbot_api/settings/logs/delete'
+  defaults:
+    _form: '\Drupal\oscarbot_api\Form\ConfirmDeleteLogsForm'
+    _title: 'Confirm delete logs'
+  requirements:
+    _permission: 'delete oscarbot_api logs'
+  options:
+    no_cache: 'TRUE'
+
+################################################################################
+# REPORTES                                                                     #
+################################################################################
+
+# Ruta para ver todos los informes.
+custom_module.oscarbot_api.reports:
+  path: '/admin/custom_modules/oscarbot_api/reports'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Reports'
+  options:
+    _admin_route: TRUE
+  requirements:
+    _permission: 'access oscarbot_api log'
+
+# Ruta para ver un informe concreto.
+custom_module.oscarbot_api.reports.show:
+  path: '/admin/custom_modules/oscarbot_api/reports/{type}/{log_id}'
+  defaults:
+    _controller: '\Drupal\oscarbot_api\Controller\LoggerController::showLogDetails'
+    _title: 'Reports'
+  options:
+    _admin_route: TRUE
+    no_cache: 'TRUE'
+    parameters:
+      type:
+        type: string
+      log_id:
+        type: integer
+  requirements:
+    _permission: 'access oscarbot_api log'
+
+# Ruta para ver los log del servidor.
+custom_module.oscarbot_api.reports.server:
+  path: '/admin/custom_modules/oscarbot_api/reports/log_server'
+  defaults:
+    _controller: '\Drupal\oscarbot_api\Controller\LoggerController::showServerLogs'
+    _title: 'Access Check'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _custom_access: '\Drupal\oscarbot_api\Controller\LoggerController::checkAccessServerLogs'
+
+################################################################################
+# LLAMADAS API                                                                 #
+################################################################################
+
+# Ruta para permitir llamadas al API.
+custom_module.oscarbot_api.api_gateway:
+  path: '/api/gateway/{group}/{service_name}'
+  defaults:
+    _title: 'API Gateway'
+    _controller: '\Drupal\oscarbot_api\Controller\RestServerController::backendGateway'
+    service_name: ''
+  methods: [POST, GET]
+  requirements:
+    _format: json
+    _content_type_format: json
+    _backend_gateway_access_check: 'TRUE'
+
+################################################################################
+# DOCUMENTACIÓN API (SWAGGER)                                                  #
+################################################################################
+
+# Ruta para obtener el json necesario para Swagger.
+custom_module.oscarbot_api.api_swagger_info:
+  path: '/api/info.json'
+  defaults:
+    _title: 'API Swagger definitions'
+    _controller: '\Drupal\oscarbot_api\Controller\RestServerController::generateSwagger'
+  requirements:
+    _custom_access: '\Drupal\oscarbot_api\Controller\RestServerController::checkAccessApiDoc'
+
+# Ruta para obtener la documentación Swagger.
+custom_module.oscarbot_api.api_swagger_doc:
+  path: '/api/documentation'
+  defaults:
+    _title: 'API Swagger documentation'
+    _controller: '\Drupal\oscarbot_api\Controller\RestServerController::getSwaggerDocumentation'
+  requirements:
+    _custom_access: '\Drupal\oscarbot_api\Controller\RestServerController::checkAccessApiDoc'

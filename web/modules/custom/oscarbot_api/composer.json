@@ -1,0 +1,15 @@
+{
+    "name": "drupal/oscarbot_api",
+    "description": "OscarBot: API",
+    "type": "drupal-custom-module",
+    "license": "GPL-3.0-or-later",
+    "version": "1.0.0",
+
+    "require": {
+        "bower-asset/swagger-ui": "^4.17",
+        "zircote/swagger-php": "^4.7"
+    },
+
+    "require-dev": {
+    }
+}

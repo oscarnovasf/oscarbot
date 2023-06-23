@@ -1,0 +1,17 @@
+# GENERAL.
+active_modules:
+  client: client
+  server: 0
+# CLIENTE.
+base_url: ''
+api_key: ''
+api_key_type: basic
+send_params_type: get
+proxy_server: null
+# SERVIDOR.
+backend_gateway_token: ''
+cache_response: 0
+# DESARROLLO.
+performance_tracing: 1
+track_error_result: 1
+skip_ssl: 1

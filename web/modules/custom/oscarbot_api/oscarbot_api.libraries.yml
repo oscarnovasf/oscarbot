@@ -1,0 +1,17 @@
+################################################################################
+# LIBRERÍAS                                                                    #
+################################################################################
+
+# Para la visualización de Readme, License y Changelog.
+markdown:
+  version: VERSION
+  css:
+    theme:
+      css/markdown.css: {}
+
+# Maquetación de la visualización de los errores.
+logger:
+  version: VERSION
+  css:
+    component:
+      css/logger.css: {}

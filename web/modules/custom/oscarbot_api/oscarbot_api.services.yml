@@ -1,0 +1,69 @@
+services:
+  # Cliente rest para API externa.
+  oscarbot_api.rest_client:
+    class: Drupal\oscarbot_api\lib\RestClient
+    arguments:
+      - '@config.factory'
+      - '@language_manager'
+      - '@http_client'
+      - '@oscarbot_api.logger'
+
+  # Cliente rest para API propia.
+  oscarbot_api.rest_server:
+    class: Drupal\oscarbot_api\lib\RestServer
+    arguments:
+      - '@oscarbot_api.rest_client'
+      - '@config.factory'
+      - '@request_stack'
+      - '@oscarbot_api.logger'
+      - '@session_manager'
+      - '@session'
+      - '@password'
+      - '@module_handler'
+      - '@csrf_token'
+      - '@current_user'
+      - '@language_manager'
+
+  # Servidor rest para API propia.
+  oscarbot_api.api_gateway:
+    class: Drupal\oscarbot_api\Controller\RestServerController
+    arguments:
+      - '@oscarbot_api.rest_server'
+      - '@user.data'
+      - '@config.factory'
+      - '@language_manager'
+      - '@extension.path.resolver'
+      - '@library.discovery'
+      - '@oscarbot_api.swagger.ui_library_discovery'
+    tags:
+      - { name: access_check, applies_to: _backend_gateway_access_check, method: backendAccess }
+
+  # Servicio para log de peticiones.
+  oscarbot_api.logger:
+    class: Drupal\oscarbot_api\lib\logger\Logger
+    arguments:
+      - '@database'
+      - '@logger.log_message_parser'
+      - '@datetime.time'
+      - '@request_stack'
+      - '@current_user'
+      - '@config.factory'
+      - '@logger.factory'
+
+  # Servicio para operaciones de Swagger.
+  oscarbot_api.swagger.ui_library_discovery:
+    class: Drupal\oscarbot_api\lib\swagger\SwaggerUiLibraryDiscovery
+    arguments:
+      - '@cache.default'
+      - '@theme_handler'
+      - '@theme.manager'
+      - '@theme.initialization'
+
+  oscarbot_api.menu_tree_manipulators:
+    class: Drupal\oscarbot_api\MenuLinkTreeManipulator
+    public: false
+    decorates: menu.default_tree_manipulators
+    parent: menu.default_tree_manipulators
+    calls:
+      - [setAdminContext, ['@router.admin_context']]
+      - [setConfigFactory, ['@config.factory']]

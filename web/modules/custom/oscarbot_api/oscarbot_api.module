@@ -1,0 +1,142 @@
+<?php
+
+/**
+ * @file
+ * oscarbot_api.module.
+ */
+
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Render\Markup;
+
+use Drupal\oscarbot_api\lib\general\MarkdownParser;
+use Drupal\oscarbot_api\lib\logger\LoggerDatabaseHandler;
+use Drupal\oscarbot_api\lib\swagger\Exception\SwaggerUiLibraryDiscoveryException;
+
+/**
+ * Implements hook_help().
+ */
+function oscarbot_api_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+
+    case 'help.page.oscarbot_api':
+      /* Añado el contenido del archivo README.md a la ayuda del módulo */
+      $parser = new MarkdownParser();
+
+      $module_path = \Drupal::service('extension.path.resolver')
+        ->getPath('module', "oscarbot_api");
+
+      $readme_ruta = $module_path . "/README.md";
+      $contenido = '';
+      if (file_exists($readme_ruta)) {
+        $contenido = file_get_contents($readme_ruta);
+        $contenido = Markup::create($parser->text($contenido));
+      }
+
+      $template_path = $module_path . "/templates/custom/help.html.twig";
+      $template = file_get_contents($template_path);
+      $build = [
+        'description' => [
+          '#type' => 'inline_template',
+          '#template' => $template,
+          '#context' => [
+            'readme' => $contenido,
+          ],
+        ],
+      ];
+      return $build;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function oscarbot_api_views_pre_render(ViewExecutable $view) {
+  if (($view->storage->get('base_table') == LoggerDatabaseHandler::TABLES['server']) ||
+      ($view->storage->get('base_table') == LoggerDatabaseHandler::TABLES['client'])) {
+    $view->element['#attached']['library'][] = 'oscarbot_api/logger';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function oscarbot_api_theme(): array {
+  return [
+    'swagger_ui' => [
+      'variables' => [
+        'field_name' => NULL,
+        'delta' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_cache_flush().
+ */
+function oscarbot_api_cache_flush(): void {
+  // The library discovery service might not exist in certain situations (like
+  // when someone upgrades the module from 8.x-2.x) so we check its existence.
+  // @todo The condition can be removed in 4.x.
+  $service_name = 'oscarbot_api.swagger.ui_library_discovery';
+  if (\Drupal::hasService($service_name)) {
+    $swagger_ui_library_discovery = \Drupal::service($service_name);
+    if (method_exists($swagger_ui_library_discovery, 'reset')) {
+      $swagger_ui_library_discovery->reset();
+    }
+  }
+}
+
+/**
+ * Implements hook_library_info_build().
+ */
+function oscarbot_api_library_info_build(): array {
+  $libraries = [];
+
+  $swagger_ui_library_discovery = \Drupal::service('oscarbot_api.swagger.ui_library_discovery');
+
+  try {
+    $library_dir = $swagger_ui_library_discovery->libraryDirectory();
+    $library_version = $swagger_ui_library_discovery->libraryVersion();
+  }
+  catch (SwaggerUiLibraryDiscoveryException $exception) {
+    \Drupal::logger('oscarbot_api')->error('Unable to register Swagger UI library: ' . $exception->getMessage());
+    return $libraries;
+  }
+
+  // Add a leading slash to the library directory path to indicate in
+  // $libraries[] that it's relative to DRUPAL_ROOT. Otherwise, it's considered
+  // as a relative path from the current module.
+  $library_dir = '/' . $library_dir;
+
+  // Library definition for the required Swagger UI files.
+  $libraries['oscarbot_api.swagger_ui'] = [
+    'version' => $library_version,
+    'css' => [
+      'theme' => [
+        $library_dir . '/dist/swagger-ui.css' => ['minified' => TRUE],
+      ],
+    ],
+    'js' => [
+      $library_dir . '/dist/swagger-ui-bundle.js' => ['minified' => TRUE],
+      $library_dir . '/dist/swagger-ui-standalone-preset.js' => ['minified' => TRUE],
+    ],
+  ];
+  // Library definition for the Swagger UI integration files.
+  $libraries['oscarbot_api.swagger_ui_integration'] = [
+    'version' => '1.0',
+    'js' => [
+      'js/swagger-ui-formatter.js' => [],
+    ],
+    'dependencies' => [
+      'core/drupal',
+      'core/jquery',
+      'core/drupalSettings',
+      'oscarbot_api/oscarbot_api.swagger_ui',
+    ],
+  ];
+  return $libraries;
+}

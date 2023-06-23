@@ -1,0 +1,27 @@
+################################################################################
+# CONFIGURACIÓN DEL MÓDULO                                                     #
+################################################################################
+
+# Configuración general
+config oscarbot_api module:
+  title: 'Config API'
+
+################################################################################
+# GESTIÓN DE LOGS                                                              #
+################################################################################
+
+# Revisión de logs.
+access oscarbot_api log:
+  title: 'Access OscarBot: API logs'
+
+# Eliminar registro de logs.
+delete oscarbot_api logs:
+  title: 'Allow delete all logs.'
+
+################################################################################
+# SWAGGER                                                                      #
+################################################################################
+
+# Ver la documentación del API.
+access oscarbot_api api doc:
+  title: 'Access OscarBot: API API doc'

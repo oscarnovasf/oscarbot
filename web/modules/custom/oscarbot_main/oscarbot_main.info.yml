@@ -1,7 +1,6 @@
 # Datos del módulo
 name: 'OscarBot: Main'
 description: 'OscarBot: Main - Functionalities'
-project: 'oscarbot_main'
 
 # Datos de la versión
 package: custom

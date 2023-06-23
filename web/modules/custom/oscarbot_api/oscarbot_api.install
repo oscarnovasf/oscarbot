@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the custom module.
+ */
+
+use Drupal\oscarbot_api\lib\logger\LoggerDatabaseHandler;
+
+/**
+ * Implements hook_schema().
+ */
+function oscarbot_api_schema() {
+  /* Tabla general con las operaciones del Servidor */
+  $schema[LoggerDatabaseHandler::TABLES['server']] = LoggerDatabaseHandler::getTableLogsServerSchema()[LoggerDatabaseHandler::TABLES['server']];
+
+  /* Tabla general con las operaciones del Cliente */
+  $schema[LoggerDatabaseHandler::TABLES['client']] = LoggerDatabaseHandler::getTableLogsClientSchema()[LoggerDatabaseHandler::TABLES['client']];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function oscarbot_api_uninstall($is_syncing) {
+  $config = \Drupal::configFactory()
+    ->getEditable('oscarbot_api.settings');
+
+  if (is_object($config)) {
+    $config->delete();
+  }
+}

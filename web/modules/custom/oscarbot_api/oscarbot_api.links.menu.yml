@@ -1,0 +1,61 @@
+################################################################################
+# MENÚ GLOBAL PARA LOS MÓDULOS CUSTOM                                          #
+################################################################################
+
+# Menú de configuración para todas las herramientas.
+custom_module.global.admin:
+  title: 'Custom Modules'
+  route_name: custom_module.global.admin
+  parent: system.admin
+  weight: 50
+
+################################################################################
+# CONFIGURACIÓN DEL MÓDULO                                                     #
+################################################################################
+
+# Menú para todos los elementos de este módulo.
+custom_module.oscarbot_api.admin:
+  title: 'OscarBot: API'
+  description: 'OscarBot: API - Functionalities'
+  route_name: custom_module.oscarbot_api.admin
+  parent: custom_module.global.admin
+
+################################################################################
+# FORMULARIOS                                                                  #
+################################################################################
+
+# Formulario de configuración.
+custom_module.oscarbot_api.settings:
+  title: 'Settings'
+  route_name: custom_module.oscarbot_api.settings
+  parent: custom_module.oscarbot_api.admin
+  weight: 4
+
+################################################################################
+# REPORTES                                                                     #
+################################################################################
+
+# Menú para todos los informes de este módulo.
+custom_module.oscarbot_api.reports:
+  title: 'Reports'
+  route_name: custom_module.oscarbot_api.reports
+  parent: custom_module.oscarbot_api.admin
+  weight: 1
+
+# Menú para el log del servidor.
+custom_module.oscarbot_api.reports.log_server:
+  title: 'Server'
+  parent: custom_module.oscarbot_api.reports
+  route_name: custom_module.oscarbot_api.reports.server
+  weight: 1
+
+################################################################################
+# DOCUMENTACIÓN API (SWAGGER)                                                  #
+################################################################################
+
+# Documentación.
+custom_module.oscarbot_api.api_swagger_doc:
+  title: 'Documentation'
+  route_name: custom_module.oscarbot_api.api_swagger_doc
+  parent: custom_module.oscarbot_api.admin
+  weight: 2

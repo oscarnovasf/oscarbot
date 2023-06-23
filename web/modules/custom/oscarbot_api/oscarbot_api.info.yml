@@ -1,0 +1,27 @@
+# Datos del módulo
+name: 'OscarBot: API'
+description: 'OscarBot: API - Functionalities'
+
+# Datos de la versión
+package: Web services
+type: module
+version: '1.0.0'
+
+# Tema
+base theme: false
+
+# Configuración
+configure: oscarbot_api.settings
+
+# Dependencias
+dependencies:
+  - dblog
+
+# Requisitos
+core_version_requirement: ^10
+requirements:
+  _permission: 'config oscarbot_api module'
+
+# Traducciones
+'interface translation project': oscarbot_api
+'interface translation server pattern': 'modules/custom/oscarbot_api/config/translations/oscarbot_api.%language.po'
