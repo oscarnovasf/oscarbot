@@ -29,3 +29,16 @@ oscarbot_main.settings:
   description: 'Global settings for OscarBot: Main'
   route_name: oscarbot_main.settings
   parent: custom_module.oscarbot_main.admin
+
+################################################################################
+# MENÚS DE USUARIO                                                             #
+################################################################################
+
+# Menú para editar cuenta de usuario.
+oscarbot_main.user.edit:
+  title: 'My Account'
+  class: Drupal\oscarbot_main\Plugin\Menu\UserProfile
+  description: User profile.'
+  menu_name: 'account'
+  route_name: entity.user.edit_form
+  weight: 100
