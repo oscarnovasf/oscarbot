@@ -6,6 +6,7 @@
   "version": "1.0.0",
 
   "require": {
+    "drupal/easy_breadcrumb": "^2.0",
     "drupal/fontawesome_menu_icons": "^2.0",
     "drupal/menu_link_attributes": "^1.3"
   },
