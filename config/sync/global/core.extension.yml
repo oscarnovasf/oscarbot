@@ -27,6 +27,7 @@ module:
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
+  easy_breadcrumb: 0
   editor: 0
   editor_advanced_link: 0
   entity_print: 0
@@ -40,6 +41,8 @@ module:
   file: 0
   file_delete: 0
   filter: 0
+  fontawesome: 0
+  fontawesome_menu_icons: 0
   igbinary: 0
   image: 0
   imageapi_optimize: 0
@@ -82,7 +85,6 @@ module:
   stage_file_proxy: 0
   svg_image: 0
   symfony_mailer: 0
-  symfony_mailer_bc: 0
   system: 0
   taxonomy: 0
   text: 0

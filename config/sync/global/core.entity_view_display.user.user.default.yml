@@ -2,11 +2,7 @@ uuid: 60791f87-1ee9-4f53-a37a-549b0161dc3e
 langcode: es
 status: true
 dependencies:
-  config:
-    - field.field.user.user.user_picture
-    - image.style.thumbnail
   module:
-    - image
     - user
 _core:
   default_config_hash: mZLyuWM9CQx2ZJVqFGSbzgFnHzudVbHBYmdU256A5Wk
@@ -16,18 +12,12 @@ bundle: user
 mode: default
 content:
   member_for:
+    settings: {  }
+    third_party_settings: {  }
     weight: 5
     region: content
-  user_picture:
-    type: image
-    label: hidden
-    settings:
-      image_link: content
-      image_style: thumbnail
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 0
-    region: content
 hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
   langcode: true

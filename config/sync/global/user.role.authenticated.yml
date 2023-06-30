@@ -7,6 +7,7 @@ dependencies:
   module:
     - file
     - filter
+    - fontawesome
     - media
 _core:
   default_config_hash: cFrlqjtkTfvY3RGccjJkPf1SGIfJ942IrxTLWAO4mgA
@@ -15,6 +16,7 @@ label: 'Usuario autenticado'
 weight: 1
 is_admin: false
 permissions:
+  - 'access fontawesome additional settings'
   - 'delete own files'
   - 'use text format basic_html'
   - 'view media'

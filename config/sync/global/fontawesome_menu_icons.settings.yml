@@ -1,0 +1,19 @@
+_core:
+  default_config_hash: 5TDl2QyTY-mHHJ0_VrmcxVDwhp4oqkLTzDI03yXvhAI
+langcode: es
+menu_link_icons:
+  user_logout:
+    icon: fa-arrow-right-from-bracket
+    prefix: fa-solid
+    tag: span
+    appearance: only
+  user_page:
+    icon: fa-user-gear
+    prefix: fa-solid
+    tag: span
+    appearance: only
+  oscarbot_main_user_edit:
+    icon: fa-user-gear
+    prefix: fa-solid
+    tag: span
+    appearance: only

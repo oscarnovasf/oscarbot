@@ -15,8 +15,8 @@ libraries:
 regions:
   header: 'Header'
   navigation: 'Navigation'
-  # secondary_menu: 'Secondary menu'
-  # page_top: 'Page top'
+  secondary_menu: 'Secondary menu'
+  top: 'Page top'
   # page_bottom: 'Page bottom'
   # featured: 'Featured'
   breadcrumb: 'Breadcrumb'

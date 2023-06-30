@@ -14,7 +14,7 @@ _core:
 id: custom_theme_main_menu
 theme: custom_theme
 region: navigation
-weight: -4
+weight: -5
 provider: null
 plugin: 'system_menu_block:main'
 settings:

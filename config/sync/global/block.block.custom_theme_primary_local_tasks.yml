@@ -10,8 +10,8 @@ _core:
   default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
 id: custom_theme_primary_local_tasks
 theme: custom_theme
-region: navigation
-weight: -2
+region: content
+weight: -4
 provider: null
 plugin: local_tasks_block
 settings:

@@ -14,3 +14,21 @@ definitions:
     menu_name: main
     expanded: false
     enabled: true
+  user__logout:
+    weight: -48
+    menu_name: account
+    parent: ''
+    expanded: false
+    enabled: true
+  user__page:
+    weight: -50
+    enabled: false
+    menu_name: account
+    parent: ''
+    expanded: false
+  oscarbot_main__user__edit:
+    menu_name: account
+    parent: ''
+    weight: -49
+    expanded: false
+    enabled: true

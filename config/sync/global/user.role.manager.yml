@@ -26,4 +26,3 @@ permissions:
   - 'use text format full_html'
   - 'view all revisions'
   - 'view own unpublished content'
-  - 'view the administration theme'

@@ -1,19 +1,20 @@
 uuid: fd02b7ff-f05b-409d-aa85-b16709e80aff
 langcode: es
-status: false
+status: true
 dependencies:
   config:
     - system.menu.account
   module:
     - system
+    - user
   theme:
     - custom_theme
 _core:
   default_config_hash: gmxYWWHmgbe0Pnv8y48ZLSLH5mEHejOjAP6RLxUfdzU
 id: custom_theme_account_menu
 theme: custom_theme
-region: navigation
-weight: -3
+region: secondary_menu
+weight: -4
 provider: null
 plugin: 'system_menu_block:account'
 settings:
@@ -24,4 +25,11 @@ settings:
   level: 1
   depth: 1
   expand_all_items: false
-visibility: {  }
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
