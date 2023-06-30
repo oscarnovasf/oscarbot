@@ -40,34 +40,38 @@
 #}
 
 <div class="layout-container">
-  {% if page.header %}
-    <header class="content-header clearfix">
+
+  <aside class="content-menu">
+    <div class="logo">
       {{ page.header }}
+    </div>
+    <hr>
+    {{ page.navigation }}
+  </aside>
+
+  <div class="page-main" role="main">
+    <header class="page-header">
+      <div class="page-header-left page-header-inner">
+        <div class="breadcrumb">
+          {{ page.breadcrumb }}
+          <div class="title">
+            {{ page.top }}
+          </div>
+        </div>
+      </div>
+      <div class="page-header-rigth page-header-inner">
+        <div class="secondary-menu">
+          {{ page.secondary_menu }}
+        </div>
+      </div>
     </header>
-  {% endif %}
 
-  {% if page.navigation %}
-    <div class="content-navbar">
-      {{ page.navigation }}
-    </div>
-  {% endif %}
+    <main class="content">
+      {{ page.content }}
+    </main>
 
-  {% if page.breadcrumb %}
-    <div class="content-breadcrumb">
-      {{ page.breadcrumb }}
-    </div>
-  {% endif %}
-
-  <main class="content-main clearfix" role="main">
-    <div class="visually-hidden">
-      <a id="main-content" tabindex="-1"></a>
-    </div>
-    {{ page.content }}
-  </main>
-
-  {% if page.footer %}
-    <footer class="content-footer">
+    <footer class="page-footer">
       {{ page.footer }}
     </footer>
-  {% endif %}
+  </div>
 </div>

@@ -1,0 +1,32 @@
+.block-system-breadcrumb-block ol {
+  list-style: none;
+}
+
+.block-system-breadcrumb-block ol li {
+  display: inline-block;
+}
+
+.block-system-breadcrumb-block ol li a {
+  color:           var(--color-white);
+  font-size:       var(--font-size-m);
+  text-decoration: none;
+  opacity:         0.5;
+}
+
+.block-system-breadcrumb-block ol li a svg {
+  display: block;
+  height: .75rem /* 12px -> .75rem */;
+}
+
+.block-system-breadcrumb-block ol li:last-child a {
+  opacity: 1;
+}
+
+.block-system-breadcrumb-block ol li a span {
+  font-size: var(--font-size-m);
+}
+
+.block-system-breadcrumb-block ol li + li::before {
+  content: '/';
+  padding: 0 8px;
+}

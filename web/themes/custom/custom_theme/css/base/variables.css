@@ -7,14 +7,12 @@
   --color-white-opacity: rgba(255, 255, 255, 0.5);
   --color-black:         #16304d;
 
-  --color-bg-primary: #C7C5F4;
+  --color-bg-primary:   #C7C5F4;
   --color-bg-secondary: #776BCC;
 
   --color-shadow-primary:    #5C5696;
   --color-shadow-secondary:  #6C63AC;
-  --color-shadow-tertiary: #7E7BB9;
-
-  --primary:   #5E5DFF;
+  --color-shadow-tertiary:   #7E7BB9;
 
   /* Espaciado */
   --space-xl: 3rem   /* 48px -> 3rem */;
@@ -25,12 +23,21 @@
 
   /* Fuentes - Tipografía (generales) */
   --font-size-base: 1rem   /* 16px -> 1rem */;
+  --font-size-xl:   1.875rem /* 30px -> 1.875rem */
+  --font-size-x:    1.4375rem /* 23px -> 1.4375rem */
+  --font-size-m:    .875rem /* 14px -> .875rem */;
   --font-size-s:    .75rem /* 12px -> .75rem */;
+  --font-color-primary: rgb(52, 71, 103);
 
   /* Bordes */
   --border-xs: .25rem /* 4px -> .25rem */;
   --border-color-gray:       #D4D3E8;
   --border-color-gray-hover: #6A679E;
+
+  /* Menús */
+  --color-bg-menu:     rgb(26, 31, 55);
+  --color-shadow-menu: rgba(0, 0, 0, 0.05);
+  --border-color-menu: rgba(0, 0, 0, 0.08);
 
   /* Mensajes */
   --messages-bg-color:           #353641;

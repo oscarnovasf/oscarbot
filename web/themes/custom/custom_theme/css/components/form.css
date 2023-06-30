@@ -17,7 +17,7 @@
   transition:       transform 120ms ease-in;
   font-weight:      bold;
   line-height:      1.2;
-  color:            var(--primary);
+  color:            var(--font-color-primary);
 }
 
 .form-item .form-text {
@@ -25,7 +25,7 @@
   display:       block;
   width:         100%;
   border:        none;
-  border-bottom: 3px solid var(--primary);
+  border-bottom: 3px solid var(--font-color-primary);
   padding:       calc(var(--space-xs) * 1.5) var(--space-xs);
   color:         var(--color-black);
   background:    transparent;
@@ -45,7 +45,7 @@
 .form-item .form-text:not(:placeholder-shown) + .form-item__label,
 .form-item .form-text:not(:placeholder-shown) + button + .form-item__label {
   transform:  translate(.25rem, -65%) scale(.8);
-  color:      var(--primary);
+  color:      var(--font-color-primary);
 }
 
 .form-submit {
@@ -58,7 +58,7 @@
   border:         1px solid var(--border-color-gray);
   text-transform: uppercase;
   font-weight:    700;
-  color:          var(--primary);
+  color:          var(--font-color-primary);
   box-shadow:     0px 2px 2px var(--color-shadow-primary);
   cursor:         pointer;
   transition:     .2s;

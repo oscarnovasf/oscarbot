@@ -1,0 +1,20 @@
+.block-custom-theme-account-menu__menu {
+  list-style: none;
+}
+
+.block-custom-theme-account-menu__menu li {
+  display: inline-block;
+}
+
+.block-custom-theme-account-menu__menu li + li {
+  margin-left: 15px;
+}
+
+.block-custom-theme-account-menu__menu a {
+  color: var(--color-white);
+}
+
+.block-custom-theme-account-menu__menu a svg {
+  width:  1.5625rem /* 25px -> 1.5625rem */;
+  height: 1.5625rem /* 25px -> 1.5625rem */;
+}

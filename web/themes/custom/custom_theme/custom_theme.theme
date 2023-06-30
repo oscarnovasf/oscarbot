@@ -9,6 +9,7 @@ use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Render\Element;
+use Drupal\Core\Render\Markup;
 
 /**
  * Implements hook_element_info_alter().
@@ -248,4 +249,11 @@ function custom_theme_preprocess_item_list(array &$variables) {
  */
 function custom_theme_preprocess_user(array &$variables) {
   $variables['view_mode'] = $variables['elements']['#view_mode'];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function custom_theme_preprocess_breadcrumb(&$variables) {
+  $variables['breadcrumb'][0]['text'] = Markup::create('<i class="fa-solid fa-house"></i>');
 }

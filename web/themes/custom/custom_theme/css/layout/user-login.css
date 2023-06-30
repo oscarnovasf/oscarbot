@@ -24,24 +24,6 @@
   height:   100%;
 }
 
-.screen_user__content .block-system-branding-block {
-  max-width:  50%;
-  overflow:   hidden;
-  text-align: center;
-  display:    block;
-  margin:     50px 0 15px 15px;
-}
-
-.screen_user__content .block-system-branding-block img {
-  display: block;
-  width:   100%;
-}
-
-.screen_user__content .block-system-branding-block a:nth-child(2) {
-  text-decoration: none;
-  font-size:       1.875rem /* 30px -> 1.875rem */;
-}
-
 .screen_user__background {
   position:          absolute;
   top:               0;
