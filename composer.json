@@ -56,7 +56,7 @@
         "drupal/imageapi_optimize_resmushit": "^2.0@beta",
         "drupal/jquery_ui_accordion": "^2.0",
         "drupal/jquery_ui_touch_punch": "^1.1",
-        "drupal/linkit": "^6.0@beta",
+        "drupal/linkit": "^6.1@RC",
         "drupal/metatag": "^2.0",
         "drupal/module_filter": "^4.0",
         "drupal/paragraphs": "^1.15",
