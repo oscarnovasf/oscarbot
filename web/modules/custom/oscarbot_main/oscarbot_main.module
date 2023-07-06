@@ -8,6 +8,7 @@
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Render\Element\PasswordConfirm;
 
 use Drupal\oscarbot_main\lib\general\MarkdownParser;
 use Drupal\oscarbot_main\lib\handlers\FormAlterHandler;
@@ -102,4 +103,24 @@ function oscarbot_main_mail(string $key, array &$message, array $params) {
  */
 function oscarbot_main_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $form = FormAlterHandler::addPlaceholderUserForm($form, $form_id);
+}
+
+/**
+ * Modifica el placeholder cuando se trata de un campo de tipo password confirm.
+ *
+ * @see Drupal\oscarbot_main\lib\handlers\FormAlterHandler::addPlaceholderUserForm
+ */
+function _oscarbot_main_add_placeholders_password_confirm(&$element,
+                                                          FormStateInterface $form_state,
+                                                          &$complete_form) {
+  $element = PasswordConfirm::processPasswordConfirm($element,
+                                                     $form_state,
+                                                     $complete_form);
+
+  $element['pass1']['#placeholder'] = t('Password here please');
+  $element['pass2']['#placeholder'] = t('Password again here please');
+  $element['pass1']['#title'] = t("New password");
+  $element['pass2']['#title'] = t("New password confirm");
+
+  return $element;
 }

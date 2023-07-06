@@ -29,6 +29,7 @@ class FormAlterHandler {
       'user_login_form',
       'user_register_form',
       'user_pass',
+      'user_form',
     ];
 
     if (TRUE === in_array($form_id, $forms_users_add_placeholder)) {
@@ -41,6 +42,17 @@ class FormAlterHandler {
       if (isset($form['mail']) && isset($form['mail']['#title'])) {
         $form['mail']['#attributes']['placeholder'] = $form['mail']['#title'];
       }
+
+      if (isset($form['account']['name'])) {
+        $form['account']['name']['#attributes']['placeholder'] = $form['account']['name']['#title'];
+      }
+      if (isset($form['account']['pass'])) {
+        $form['account']['pass']['#process'][] = '_oscarbot_main_add_placeholders_password_confirm';
+      }
+      if (isset($form['account']['current_pass'])) {
+        $form['account']['current_pass']['#attributes']['placeholder'] = $form['account']['current_pass']['#title'];
+      }
+
     }
 
     return $form;

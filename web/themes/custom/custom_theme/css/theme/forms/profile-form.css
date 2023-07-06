@@ -1,0 +1,48 @@
+.form-user-form {
+  color:           var(--color-black-opacity);
+  display:         flex;
+  flex-direction:  column;
+  backdrop-filter: blur(120px);
+  position:        relative;
+  min-width:       0px;
+  overflow-wrap:   break-word;
+  box-shadow:      var(--color-shadow-menu) 0rem 1.25rem 1.6875rem 0rem;
+  transition:      box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  overflow:        hidden;
+  background:      linear-gradient(127.09deg, var(--color-bg-card-primary) 19.41%, var(--color-bg-card-secondary) 76.65%) border-box;
+  padding:         1.375rem /* 22px -> 1.375rem */;
+  border-width:    0px;
+  border-style:    solid;
+  border-color:    var(--border-color-black-opacity);
+  border-image:    initial;
+  border-radius:   1.25rem /* 20px -> 1.25rem */;
+}
+
+.form-user-form .form-item {
+  padding-bottom: 1.25rem /* 20px -> 1.25rem */;
+}
+
+.form-user-form .form-item#edit-pass {
+  margin: 0;
+}
+
+.form-user-form .form-item .form-item__description {
+  display:     block;
+  color:       var(--color-white);
+  opacity:     .5;
+  font-size:   var(--font-size-m);
+  padding-top: .25rem /* 4px -> .25rem */;
+}
+
+.form-user-form .form-item .form-item__description a {
+  display: none;
+}
+
+.form-user-form .form-item .form-item__label {
+  color: var(--color-white);
+}
+
+.form-user-form .form-item .form-text,
+.form-user-form .form-item .form-email {
+  color: var(--color-white);
+}

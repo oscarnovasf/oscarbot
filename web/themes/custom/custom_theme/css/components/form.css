@@ -20,7 +20,8 @@
   color:            var(--font-color-primary);
 }
 
-.form-item .form-text {
+.form-item .form-text,
+.form-item .form-email {
   box-sizing:    border-box;
   display:       block;
   width:         100%;
@@ -32,18 +33,24 @@
   border-radius: var(--size-radius);
 }
 
-.form-item .form-text::placeholder {
+.form-item .form-text::placeholder,
+.form-item .form-email::placeholder {
   color: transparent;
 }
 
-.form-item .form-text:focus-visible {
+.form-item .form-text:focus-visible,
+.form-item .form-email:focus-visible {
   outline: none;
 }
 
 .form-item .form-text:focus + .form-item__label,
 .form-item .form-text:focus + button + .form-item__label,
 .form-item .form-text:not(:placeholder-shown) + .form-item__label,
-.form-item .form-text:not(:placeholder-shown) + button + .form-item__label {
+.form-item .form-text:not(:placeholder-shown) + button + .form-item__label,
+.form-item .form-email:focus + .form-item__label,
+.form-item .form-email:focus + button + .form-item__label,
+.form-item .form-email:not(:placeholder-shown) + .form-item__label,
+.form-item .form-email:not(:placeholder-shown) + button + .form-item__label {
   transform:  translate(.25rem, -65%) scale(.8);
   color:      var(--font-color-primary);
 }

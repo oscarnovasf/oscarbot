@@ -171,9 +171,11 @@ function custom_theme_preprocess_form_element(array &$variables) {
   $elements_to_move_label = [
     'textfield',
     'password',
+    'email',
   ];
 
-  if (in_array($variables['element']['#type'], $elements_to_move_label)) {
+  $current_element_type = $variables['element']['#type'];
+  if (in_array($current_element_type, $elements_to_move_label)) {
     $variables['label_display'] = 'after';
   }
 }
